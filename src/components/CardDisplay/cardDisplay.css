@@ -1,0 +1,16 @@
+.card-display{
+    background: #ededf3;
+    border-top: solid 2px #e6e6e6;
+}
+
+.card-display-container {
+ margin-left: 45px;
+  margin-right: 45px;
+}
+
+ .card-display h4{
+ text-align: left;
+ margin-left: 55px;
+ margin-bottom: 0px;
+   
+}
