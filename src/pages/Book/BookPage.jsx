@@ -1,5 +1,5 @@
 import React from 'react';
-import "./BookPage.css";
+import "./bookPage.css";
 import {useParams } from "react-router-dom";
 import {useQuery, gql } from '@apollo/client';
 import Rating from './../../components/Rating';

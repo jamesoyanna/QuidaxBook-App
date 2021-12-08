@@ -1,7 +1,7 @@
 import React from "react";
-import "./Card.css";
+import "./card.css";
 import cart from "../../assets/image/cart.png";
-import star from "./../../assets/svg/star.svg";
+//import star from "./../../assets/svg/star.svg";
 import { Link } from "react-router-dom";
 import Rating from "./../Rating";
 
@@ -14,10 +14,10 @@ const Card = (props) => {
           <p className="subtitle">{props.book.subtitle}</p>
 
           <h4>{props.book.publisher}</h4>
-          {/* <h4>{props.book.rating}</h4> */}
+          
           <div className="card-start">
             <Rating rating={props.book.rating} />
-            {/* <img src={star[props.book.rating]} alt="star-rating" /> */}
+           
           </div>
           <img
             style={{ height: "200px", width: "140px" }}
