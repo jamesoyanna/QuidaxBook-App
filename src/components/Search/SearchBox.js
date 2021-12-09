@@ -25,34 +25,33 @@ const BOOK_SEARCH_QUERY = gql`
   }
 `;
 
-const SearchBox = () => {
-  // const { loading, error, data } = useQuery(BOOK_SEARCH_QUERY);
-  const [searchFilter, setSearchFilter] = useState("");
-  const [executeSearch, { loading, error, data }] =
-    useLazyQuery(BOOK_SEARCH_QUERY);
 
-  if (loading)
-    return (
-      <div style={{ color: "lightgreen", fontSize: "14px" }}>Loading...</div>
-    );
-  if (error) return <div style={{ color: "red" }}>An Error occured</div>;
-  console.log("My MTN data", data);
 
-  // const handleFilter = (e) => {
-  //   const searchItem = e.target.value;
-  //   setItemSelected(searchItem);
+const SearchBox = props => {
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // };
 
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  //     const newFilter = books;
-  //     console.log(newFilter);
-  // }
 
-  // const clearInput = () => {
-  //   setFilteredData([]);
-  // };
+  console.log("My  Search", searchTerm);
+
+  // Handling imput change
+  const onInputChange = (event) => {
+    const value = event.target.value;
+    setSearchTerm(value);
+    //  if (!value.length) {
+    //    props.search(value);
+    //  }
+  };
+
+ 
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSearchTerm("");
+    //props.search(searchTerm);
+    const result = props.search(searchTerm);
+    console.log("Another result", result)
+  };
 
   return (
     <>
@@ -61,48 +60,20 @@ const SearchBox = () => {
           className="search-box input"
           type="text"
           placeholder="search books, genres, authors etc."
-          onChange={(e) => setSearchFilter(e.target.value)}
-          //onChange={handleFilter}
+          onChange={onInputChange}
+          value={searchTerm}
         />
 
         <button
-          //onClick={handleSearch}
+          onClick={(e) => {
+            handleSubmit(e);
+          }}
           style={{ cursor: "pointer" }}
           className="nav-btn"
-          onClick={() =>
-            executeSearch({
-              variables: { id: searchFilter },
-            })
-          }
         >
-          <img src={search} alt="search-button" />
+          <img src={search} alt="search-icon" />
         </button>
-
-        {/* {filteredData.length === 0 ? (
-          <button
-            onClick={handleSearch}
-            style={{ cursor: "pointer" }}
-            className="nav-btn"
-          >
-            <img src={search} alt="search-button" />
-          </button>
-        ) : (
-          <i id="clearBtn" onClick={clearInput} className="close">
-            X
-          </i>
-        )} */}
       </div>
-
-      {/* {data &&
-        data.title.map((bk, index) => (
-          <CategoryPage
-            // to={`/product/${books}`}
-            key={bk.id}
-            book={bk}
-            index={index}
-            
-          />
-        ))} */}
     </>
   );
 };

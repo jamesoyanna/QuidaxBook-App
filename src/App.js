@@ -7,6 +7,7 @@ import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import BookPage from "./pages/Book/BookPage";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import SearchBox from "./components/Search/SearchBox";
+import Cart from './components/Cart/Cart';
 
 const client = new ApolloClient({
   uri: "https://quidax-feec-graphql.herokuapp.com/graphql",
@@ -26,6 +27,7 @@ function App() {
               <Route path="/product/:id" component={BookPage} />
               <Route exact path="/" render={() => <Redirect to="/new/1" />} />
               <Route exact path="/search" component={SearchBox} />
+              <Route exact path="/cart" component={Cart} />
             </Switch>
           </BrowserRouter>
         </ApolloProvider>
