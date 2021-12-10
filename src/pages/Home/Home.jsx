@@ -16,6 +16,7 @@ const BOOK_QUERY = gql`
     rating
     price
     image_url
+     available_copies
   }
 }
 `
