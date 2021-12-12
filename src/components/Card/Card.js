@@ -1,38 +1,47 @@
-import React from "react";
+import React  from "react";
 import "./card.css";
-import cart from "../../assets/image/cart.png";
-//import star from "./../../assets/svg/star.svg";
+import cartImg from "../../assets/image/cart.png";
 import { Link } from "react-router-dom";
 import Rating from "./../Rating";
 
-const Card = (props) => {
+const  Card = ({ book, addToCart}) =>{
+
+   const submitProductToCart = () => {
+     // When clicked, add product to cart and open cart drawer
+     addToCart(book);
+   };
+
   return (
     <>
       <div className="Card">
-        <Link to={`/product/${props.book.id}`} className="Card">
-          <h3>{props.book.title}</h3>
-          <p className="subtitle">{props.book.subtitle}</p>
+        <Link to={`/product/${book.id}`} className="Card">
+          <h3>{book.title}</h3>
+          <p className="subtitle">{book.subtitle}</p>
 
-          <h4>{props.book.publisher}</h4>
-          
+          <h4>{book.publisher}</h4>
+
           <div className="card-start">
-            <Rating rating={props.book.rating} />
-           
+            <Rating rating={book.rating} />
           </div>
           <img
             style={{ height: "200px", width: "140px" }}
-            src={props.book.image_url}
+            src={book.image_url}
             alt="book"
           />
 
           <div className="card-pric">
-            <h4> $ {props.book.price}</h4>
-            <h3>{props.book.number_of_purchases}</h3>
-            <h5>{props.book.release_date}</h5>
+            <h4> $ {book.price}</h4>
+            <h3>{book.number_of_purchases}</h3>
+
+            <span>
+              {book.available_copies > 0 ? "In Stock" : "Out of Stock"}
+            </span>
+
+            <h5>{book.release_date}</h5>
           </div>
         </Link>
-        <button onClick={() => alert("You click me")}>
-          <img className="shopping-cart" src={cart} alt="shopping cart" />
+        <button onClick={submitProductToCart}>
+          <img className="shopping-cart" src={cartImg} alt="shopping cart" />
           <p className="cart-text">Add to cart</p>
         </button>
       </div>

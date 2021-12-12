@@ -21,7 +21,7 @@ const BOOK_QUERY = gql`
   }
 }
 `
-const NavBar = () => {
+const NavBar = ({click}) => {
    const {loading, error, data } = useQuery(BOOK_QUERY);
 
 
@@ -40,9 +40,8 @@ const NavBar = () => {
         </Link>
             <SearchBox books = {data} search={search}   />
         
-      
-        {/* <img style={{height:"50px", width: "50px", borderRadius: '50px'}} src={logo} className="nav-cart-container" alt="book logo" /> */}
-       <Cart />
+       <Cart  />
+       <img onClick={click} style={{height: "60px", width: "60px", cursor: "pointer"}} src={logo} alt="djfjfj" />
       </div>
     );
 }

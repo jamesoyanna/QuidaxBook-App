@@ -3,24 +3,21 @@ import { useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import Cart from "../components/cart";
 import ProductListItem from "../components/productListItem";
-import { FETCH_PRODUCTS_AND_CURRENCIES } from "../graphQL/queries";
+
+import { BOOK_QUERY } from "../graphQL/queries";
 
 function Index() {
   const [products, setProducts] = useState([]); // Initialize product list as empty array
-  const [currencies, setCurrencies] = useState([]); // Initialize currencies as empty array
-  const [selectedCurrency, setSelectedCurrency] = useState("USD"); // Initialize selected currency as USD
-  const [cart, setCart] = useState([]); // Initialize cart as empty array
-  const { isOpen, onOpen, onClose } = useDisclosure(); // Initialize open and close states of Cart drawer
 
-  const { data, loading } = useQuery(FETCH_PRODUCTS_AND_CURRENCIES, {
-    variables: { currency: selectedCurrency }, // Fetch products and currencies once the page mounts
-  });
+  const [cart, setCart] = useState([]); // Initialize cart as empty array
+  const [sideToggle, setSideToggle] = useState(false);
+
+  const { data, loading } = useQuery(BOOK_QUERY);
 
   useEffect(() => {
     if (data) {
       //If requested data exists,
-      setProducts(data.products); // Set products
-      setCurrencies(data.currency); // and set currency into state
+      setProducts(data.books); // Set products
     }
   }, [data]);
 
@@ -36,6 +33,7 @@ function Index() {
       //If not, it'll add that item to the array of items in the cart
       setCart([...cart, { ...chosenItem, amount: 1 }]);
     }
+    setSideToggle(true);
   };
 
   const incrementItemAmount = (chosenItem) => {
@@ -88,57 +86,12 @@ function Index() {
     setCart(cartWithUpdatedPrices); // Then update the cart accordingly
   }, [products]);
 
+
   return (
-    <Box bgColor="#e2e6e3" minH="100vh">
-      <Flex bg="white" w="full" py={16}>
-        <Container maxW="5xl">
-          <Stack color="black" spacing={5}>
-            <Heading>All Products</Heading>
-            <Text fontSize="lg">A 360° look at Lumin</Text>
-          </Stack>
-        </Container>
-      </Flex>
-      <Flex w="full" py={12}>
-        <Container maxW="5xl">
-          <SimpleGrid
-            w="full"
-            columns={[2, 2, 3]}
-            // Chakra UI responsive queries
-            // [2, 2, 3] means 2 columns if max-width: 576px,
-            // 2 columns if max-width: 768px, and
-            // 3 columns if max-width > 768px
-            spacingX={10}
-            spacingY={12}
-          >
-            {products.map((product) => (
-              // Map each product to display a product item
-              <ProductListItem
-                product={product}
-                key={product.id}
-                loading={loading}
-                onOpen={onOpen}
-                selectedCurrency={selectedCurrency}
-                addToCart={addToCart}
-              />
-            ))}
-          </SimpleGrid>
-        </Container>
-      </Flex>
-      {/* Cart Component */}
-      <Cart
-        isOpen={isOpen}
-        onClose={onClose}
-        loading={loading}
-        selectedCurrency={selectedCurrency}
-        setSelectedCurrency={setSelectedCurrency}
-        currencies={currencies}
-        cart={cart}
-        removeFromCart={removeFromCart}
-        incrementItemAmount={incrementItemAmount}
-        decrementItemAmount={decrementItemAmount}
-        getSubTotal={getSubTotal}
-      />
-    </Box>
+    
+      <>
+      <div>New here</div>
+    </>
   );
 }
 

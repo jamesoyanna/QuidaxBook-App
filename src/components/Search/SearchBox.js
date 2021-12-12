@@ -2,37 +2,33 @@ import React, { useState } from "react";
 import "./searchbox.css";
 import search from "../../assets/svg/loupe.svg";
 import "../NavBar/NavBar.css";
-import { useParams, Redirect, Link } from "react-router-dom";
-import CategoryPage from "../../pages/CategoryPage/CategoryPage";
-import { useQuery, useLazyQuery, gql } from "@apollo/client";
+// import { useParams, Redirect, Link } from "react-router-dom";
+// import CategoryPage from "../../pages/CategoryPage/CategoryPage";
+// import { useQuery, useLazyQuery, gql } from "@apollo/client";
 
-const BOOK_SEARCH_QUERY = gql`
-  query book($id: ID!) {
-    book(id: $id) {
-      id
-      created_at
-      updated_at
-      title
-      subtitle
-      publisher
-      release_date
-      number_of_purchases
-      likes
-      rating
-      price
-      image_url
-    }
-  }
-`;
+// const BOOK_SEARCH_QUERY = gql`
+//   query book($id: ID!) {
+//     book(id: $id) {
+//       id
+//       created_at
+//       updated_at
+//       title
+//       subtitle
+//       publisher
+//       release_date
+//       number_of_purchases
+//       likes
+//       rating
+//       price
+//       image_url
+//     }
+//   }
+// `;
 
 
 
 const SearchBox = props => {
   const [searchTerm, setSearchTerm] = useState("");
-
-
-
-  console.log("My  Search", searchTerm);
 
   // Handling imput change
   const onInputChange = (event) => {
@@ -50,7 +46,7 @@ const SearchBox = props => {
     setSearchTerm("");
     //props.search(searchTerm);
     const result = props.search(searchTerm);
-    console.log("Another result", result)
+    
   };
 
   return (

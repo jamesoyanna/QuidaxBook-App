@@ -1,7 +1,5 @@
 import { gql } from "@apollo/client";
-
-// GraphQL query to fetch all products and currencies
-// Accepts currency code as parameter to display respective price
+// GraphQL query to fetch all book items
 export const BOOK_QUERY = gql`
   {
     books {
@@ -14,6 +12,7 @@ export const BOOK_QUERY = gql`
       rating
       price
       image_url
+      available_copies
     }
   }
 `;
