@@ -1,5 +1,8 @@
 import React from "react";
 import "./cartItem.css";
+
+import { useCartCounter } from "../../contexts/CartContext";
+
 export default function CartItem({
   item,
   loading,
@@ -8,6 +11,15 @@ export default function CartItem({
   removeFromCart,
   ...rest
 }) {
+  
+    const { decreaseCartCounter, increaseCartCounter } = useCartCounter();
+
+    const updateCart = () => {
+      increaseCartCounter();
+      incrementItemAmount(item);
+
+    }
+
   const { image_url, title, price, amount, total } = item; // De-structure cart-item details
 
   return (
@@ -30,7 +42,7 @@ export default function CartItem({
 
           <div className="counter">
             {/* Increase number of chosen cart product */}
-            <div onClick={() => incrementItemAmount(item)} className="btn">
+            <div onClick={updateCart} className="btn">
               +
             </div>
             <div className="count">{amount}</div>

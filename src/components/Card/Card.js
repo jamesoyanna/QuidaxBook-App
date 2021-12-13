@@ -1,15 +1,24 @@
-import React  from "react";
+import React, {useState}  from "react";
 import "./card.css";
 import cartImg from "../../assets/image/cart.png";
 import { Link } from "react-router-dom";
 import Rating from "./../Rating";
 
-const  Card = ({ book, addToCart}) =>{
+import { useCartCounter } from "../../contexts/CartContext";
 
-   const submitProductToCart = () => {
-     // When clicked, add product to cart and open cart drawer
-     addToCart(book);
-   };
+import Backdrop from '../../components/Backdrop/Backdrop';
+import CartPage from './../../pages/CartPage/CartPage';
+
+const Card = ({ book }) => {
+   const [sideToggle, setSideToggle] = useState(false);
+
+  const { addToCart } = useCartCounter();
+
+  const submitProductToCart = () => {
+    // When clicked, add product to cart and open cart drawer
+    addToCart(book);
+     setSideToggle(true);
+  };
 
   return (
     <>
@@ -45,6 +54,8 @@ const  Card = ({ book, addToCart}) =>{
           <p className="cart-text">Add to cart</p>
         </button>
       </div>
+      <Backdrop show={sideToggle} click={() => setSideToggle(false)} /> 
+      <CartPage show={sideToggle} click={() => setSideToggle(false)} />
     </>
   );
 };

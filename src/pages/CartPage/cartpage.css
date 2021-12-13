@@ -10,13 +10,17 @@
     transition: all 0.3s ease-out;
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
+  
+   
 
 
 }
 .sidedrawer.show{
     /* transform: translateX(0); */
     transform: translateX(100%);
+    overflow: visible;
+    
 }
 .sidedrawer__links{
     display: flex;

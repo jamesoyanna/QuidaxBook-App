@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./../Card/Card";
 import "./cardDisplay.css";
-const CardDisplay = ({ books, addToCart}) => {
+const CardDisplay = ({ books }) => {
   return (
     <div className="card-display">
       <h4>All Books</h4>
@@ -11,7 +11,7 @@ const CardDisplay = ({ books, addToCart}) => {
             <Card
               key={book.id}
               book={book}
-              addToCart={addToCart}
+              
             />
           );
         })}
