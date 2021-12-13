@@ -100,16 +100,7 @@ const CartContextProvider = (props) => {
     setCart(cartWithUpdatedPrices); // Then update the cart accordingly
   }, [products]);
 
-  //  Breaking code
-  // const [cartCounter, setCartCounter] = useState(0);
 
-  // const increaseCartCounter = () => {
-  //   setCartCounter(cartCounter + 1);
-  // };
-
-  // const decreaseCartCounter = () => {
-  //   setCartCounter(cartCounter - 1);
-  // };
 
   const value = {
     addToCart,
@@ -123,6 +114,7 @@ const CartContextProvider = (props) => {
     loading,
     increaseCartCounter,
     decreaseCartCounter,
+    cartCounter,
   };
 
   return (

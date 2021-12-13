@@ -14,11 +14,15 @@ export default function CartItem({
   
     const { decreaseCartCounter, increaseCartCounter } = useCartCounter();
 
-    const updateCart = () => {
+    const incrementCart = () => {
       increaseCartCounter();
       incrementItemAmount(item);
-
     }
+
+      const decrementCart = () => {
+        decreaseCartCounter()
+        decrementItemAmount(item)
+      };
 
   const { image_url, title, price, amount, total } = item; // De-structure cart-item details
 
@@ -42,12 +46,12 @@ export default function CartItem({
 
           <div className="counter">
             {/* Increase number of chosen cart product */}
-            <div onClick={updateCart} className="btn">
+            <div onClick={incrementCart} className="btn">
               +
             </div>
             <div className="count">{amount}</div>
             {/* Decrease number of chosen cart product */}
-            <div onClick={() => decrementItemAmount(item)} className="btn">
+            <div onClick={decrementCart} className="btn">
               -
             </div>
           </div>

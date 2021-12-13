@@ -9,7 +9,7 @@ import { useCartCounter } from "../../contexts/CartContext";
 //import Cart from '../Cart/Cart';
 
 const NavBar = () => {
-  const {data, cartCounter} = useCartCounter();
+  const { data, cartCounter} = useCartCounter();
 
      // Search
   const search = (term) => {
