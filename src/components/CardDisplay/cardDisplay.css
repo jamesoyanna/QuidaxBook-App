@@ -3,6 +3,20 @@
     border-top: solid 2px #e6e6e6;
 }
 
+
+.product-container{
+    width:90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-left: 80px;
+   
+}
+
+
+
 .card-display-container {
  margin-left: 45px;
   margin-right: 45px;

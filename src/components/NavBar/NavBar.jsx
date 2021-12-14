@@ -2,7 +2,8 @@ import React from 'react';
 import './NavBar.css';
 import {Link } from 'react-router-dom';
 import SearchBox from '../Search/SearchBox';
-import logo from '../../assets/image/book1.jpg';
+import Logo from '../../assets/image/logo.png';
+import Img from '../../assets/image/cart.png';
 
 import { useCartCounter } from "../../contexts/CartContext";
 
@@ -21,16 +22,25 @@ const NavBar = () => {
     
     return (
       <>
-      <div className="Nav header header-top">
-        <Link to="/">
-          <h4 style={{textAlign: 'left'}} className="header">Quidax <span>Books</span> </h4>
+       <div className="navigation fix-nav">
+         <Link to='/'>
+        <img className="logo" src={Logo} alt="quidax book" />
         </Link>
-            <SearchBox books = {data} search={search}   />
-        <p>Cart: {cartCounter}</p>
-      
-       {/* <img onClick={click} style={{height: "60px", width: "60px", cursor: "pointer"}} src={logo} alt="djfjfj" /> */}
-       
+        <div className="toggle"></div>
+        <ul class="menu">
+          <li>Home</li>
+        </ul>
+        <div className="right-menu">
+          <div className="wrap"></div>
+          <a href="cart" className="cart">
+            <em className="fas fa-shopping-cart">
+              <span className="num-cart-product">0</span>
+            </em>
+          </a>
+        </div>
       </div>
+
+        
       </>
     );
 }
