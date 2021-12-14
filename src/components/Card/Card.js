@@ -7,7 +7,6 @@ import { useCartCounter } from "../../contexts/CartContext";
 import Backdrop from '../../components/Backdrop/Backdrop';
 import CartPage from './../../pages/CartPage/CartPage';
 
-
 const Card = ({ book }) => {
    const [sideToggle, setSideToggle] = useState(false);
 
@@ -48,6 +47,7 @@ const Card = ({ book }) => {
 
       <Backdrop show={sideToggle} click={() => setSideToggle(false)} />
       <CartPage show={sideToggle} click={() => setSideToggle(false)} />
+      
     </>
   );
 };

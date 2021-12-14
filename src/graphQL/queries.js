@@ -13,6 +13,9 @@ export const BOOK_QUERY = gql`
       price
       image_url
       available_copies
+      tags {
+        name
+      }
     }
   }
 `;

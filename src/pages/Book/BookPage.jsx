@@ -4,6 +4,8 @@ import {useParams } from "react-router-dom";
 import {useQuery, gql } from '@apollo/client';
 import Rating from './../../components/Rating';
 
+import { useCartCounter } from "../../contexts/CartContext";
+
 const BOOK_QUERY = gql`
  query book($id: ID!) {
  book(id: $id){
@@ -22,40 +24,63 @@ const BOOK_QUERY = gql`
 }
 }
 `
-const BookPage = () => {
+const BookPage = ({books}) => {
+     const { addToCart } = useCartCounter();
      const { id } = useParams();
     const { data, loading, error } = useQuery(BOOK_QUERY,{
         variables:{
             id
         }
     });
+  
 
      if(loading) return <div>Loading...</div>
      if(error) return <div>An error occured</div>
 
     return (
-        <div className="d-flex">
+
+      <>
+    <section class="book-page-header">
+      <div class="section-center">
         
-            <div className="text-container">
-                    <img src={data.book.image_url} alt="books" />
-              
-                <div className="star-container">
-                      <h2>{data.book.title}</h2>
-                    <Rating rating={data.book.rating} />
-                    <p>{data.book.number_of_purchases}</p>
-                </div>
-            </div>
-            <div className="about-container">
-                <h4>{data.book.title}</h4>
-               <p> {data.book.subtitle}</p>
-            </div>
-            <div className="cart-container border">
-                <p className="price">
-                    <span>${data.book.price}</span>
-                </p>
-                <button className="buy-nw-btn" style={{ marginTop: "2rem" }}>Add to Cart</button>
-            </div>
-        </div>
+      </div>
+    </section>     
+       <section className="single-product section">
+      <div className="section-center single-product-center">
+        <img
+          src={data.book.image_url}
+          className="single-product-img img"
+          alt=""
+        />
+        <article className="single-product-info">
+          <div>
+              <h2 className="single-product-title">{data.book.title}</h2>
+            <h3 className="author">Author</h3>
+
+            <div className="item-header">
+              <div style={{columns: 8, paddingTop: "35px"}}>
+            <h5 className="item-list">person</h5>
+            <h5 className="item-list">love</h5>
+            <h5 className="item-list"><Rating rating={data.book.rating} /></h5>
+            <h5 className="item-list">Genre</h5>
+             <h5 className="item-list">Tags <span>{data.book.tags}</span></h5>
+            <h5 className="item-list">Publisher</h5>
+            <h5 className="item-list">Released</h5>
+             </div>
+             </div>
+                   <span className="single-product-price">${data.book.price}</span>
+            <span className="single-product-desc">
+               {data.book.subtitle}
+            </span>
+            <button onClick={ addToCart} className="addToCartBtn">add to cart</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+</>
+
     );
 }
 

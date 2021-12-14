@@ -13,10 +13,10 @@ const NavBar = () => {
   const { data, cartCounter} = useCartCounter();
 
      // Search
-  const search = (term) => {
+  // const search = (term) => {
     
       
-  };
+  // };
 
  
     
