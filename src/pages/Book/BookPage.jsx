@@ -40,8 +40,8 @@ const BookPage = ({books}) => {
     return (
 
       <>
-    <section class="book-page-header">
-      <div class="section-center">
+    <section className="book-page-header">
+      <div className="section-center">
         
       </div>
     </section>     

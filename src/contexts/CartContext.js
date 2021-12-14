@@ -11,7 +11,7 @@ export const useCartCounter = () => useContext(CartContext)
 const CartContextProvider = (props) => {
      const { data, error, loading } = useQuery(BOOK_QUERY);
   const [cart, setCart] = useState([]); // Initialize cart as empty array
-  const [products, setProducts] = useState([]); // Initialize product list as empty array
+ // const [products, setProducts] = useState([]); // Initialize product list as empty array
    const [cartCounter, setCartCounter] = useState(0);
  
   
@@ -27,7 +27,7 @@ const CartContextProvider = (props) => {
     useEffect(() => {
       if (data) {
         //If requested data exists,
-        setProducts(data.books); // Set products
+       // setProducts(data.books); // Set products
       }
     }, [data]);
 
@@ -88,17 +88,17 @@ const CartContextProvider = (props) => {
     // of the multiplication of the price and amount of each cart-item
     return cart.reduce((sum, { price, amount }) => sum + price * amount, 0);
   };
-  useEffect(() => {
-    // Anytime the product list is updated due to the change in selectedCurrency,
-    const cartWithUpdatedPrices = cart.map((eachItem) => {
-      // update each cart-item's details with its respective values (id, image_url, title, price) in the updated product list
-      const itemInProductList = [...products].find(
-        ({ id }) => id === eachItem.id
-      );
-      return { ...eachItem, ...itemInProductList };
-    });
-    setCart(cartWithUpdatedPrices); // Then update the cart accordingly
-  }, [products]);
+  // useEffect(() => {
+  //   // Anytime the product list is updated due to the change in selectedCurrency,
+  //   const cartWithUpdatedPrices = cart.map((eachItem) => {
+  //     // update each cart-item's details with its respective values (id, image_url, title, price) in the updated product list
+  //     const itemInProductList = [...products].find(
+  //       ({ id }) => id === eachItem.id
+  //     );
+  //     return { ...eachItem, ...itemInProductList };
+  //   });
+  //   setCart(cartWithUpdatedPrices); // Then update the cart accordingly
+  // }, [products]);
 
 
 

@@ -45,7 +45,7 @@ const SearchBox = props => {
     event.preventDefault();
     setSearchTerm("");
     //props.search(searchTerm);
-    const result = props.search(searchTerm);
+   // const result = props.search(searchTerm);
     
   };
 

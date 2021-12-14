@@ -1,16 +1,14 @@
 import React from 'react';
 import './NavBar.css';
 import {Link } from 'react-router-dom';
-import SearchBox from '../Search/SearchBox';
 import Logo from '../../assets/image/logo.png';
-import Img from '../../assets/image/cart.png';
 
 import { useCartCounter } from "../../contexts/CartContext";
 
 //import Cart from '../Cart/Cart';
 
 const NavBar = () => {
-  const { data, cartCounter} = useCartCounter();
+  const {cartCounter} = useCartCounter();
 
      // Search
   // const search = (term) => {
@@ -27,7 +25,7 @@ const NavBar = () => {
         <img className="logo" src={Logo} alt="quidax book" />
         </Link>
         <div className="toggle"></div>
-        <ul class="menu">
+        <ul className="menu">
           <li>Home</li>
         </ul>
         <div className="right-menu">

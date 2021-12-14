@@ -31,7 +31,7 @@ export default function CartItem({
       <div className="CartContainer">
         <div className="Cart-Items">
           <div className="image-box">
-            <img src={image_url} style={{ height: "100px" }} />
+            <img src={image_url} style={{ height: "100px" }} alt="cart" />
           </div>
           <div className="about">
             <h5 className="title">{title}</h5>

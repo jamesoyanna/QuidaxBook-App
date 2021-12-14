@@ -22,9 +22,9 @@ const CartPage = ({
         <div className={sideDrrawerClass.join(" ")}>
           <h5>YOUR CART</h5>
           <div>
-            {cart?.map((item) => (
+            {cart?.map((item, i) => (
               <CartItem
-                key={item.id}
+                key={i}
                 item={item}
                 incrementItemAmount={incrementItemAmount}
                 decrementItemAmount={decrementItemAmount}

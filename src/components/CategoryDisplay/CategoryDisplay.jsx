@@ -24,10 +24,10 @@ const CategoryDisplay = () => {
       static
           > 
           
-            {data.books.map((image, index) => (
-               <Link to={`/product/${image.id}`}>
-              <div className='container'key={image.id}>
-                <img src={image.image_url} alt="book images" />
+            {data.books.map((image, i) => (
+               <Link key={i} to={`/product/${image.id}`}>
+              <div className='container'>
+                <img src={image.image_url}  alt="book images" />
               </div>
                </Link>
             ))}
