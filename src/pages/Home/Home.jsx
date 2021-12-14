@@ -24,7 +24,7 @@ const Home = () => {
     return (
         <div>
             <MainHero />
-            <CategoryDisplay />
+            <CategoryDisplay books = {data.books}  />
             {/* <Card /> */}
             <CardDisplay books = {data.books}  />
        

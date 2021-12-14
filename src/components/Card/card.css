@@ -48,12 +48,21 @@
     box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
 }
 
-.add-cart:hover{
-    background-color: #129ba5;
+.add-cart{
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  padding-bottom: 10px;
+
+}
+
+/* .add-cart:hover{
+    background-color: #fff;
     transition: all ease 0.2s;
-}
-.product-box:hover .add-cart{
+      border-radius: 50px;
+} */
+/* .product-box:hover .add-cart{
     display: flex;
-}
+} */
 
 

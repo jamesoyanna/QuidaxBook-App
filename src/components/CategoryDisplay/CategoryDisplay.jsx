@@ -1,37 +1,20 @@
 import React from 'react';
-import {useQuery, gql } from "@apollo/client";
 import "./CategoryDisplay.css";
-//import Carousel from '../Slider/Slider';
 import Flickity from "react-flickity-component";
-
-
-const BOOK_QUERY = gql`
-{
-  books{
-    id
-    title
-    subtitle
-    publisher
-    release_date
-    number_of_purchases
-    rating
-    price
-    image_url
-  }
-}
-`
-
+import { useCartCounter } from "../../contexts/CartContext";
+import { Link } from "react-router-dom";
 const flickityOptions = {
     initialIndex: 2
 }
 const CategoryDisplay = () => {
-   const {loading, error, data } = useQuery(BOOK_QUERY);
+   const { loading, error, data  } = useCartCounter();
 
      if(loading) return <div>Loading...</div>
      if(error) return <div>An error occured</div>
     
     return (
       <>
+     
           <Flickity
           className={'carousel'} 
       elementType={'div'} 
@@ -39,13 +22,18 @@ const CategoryDisplay = () => {
       disableImagesLoaded={false} 
       reloadOnUpdate 
       static
-          >
+          > 
+          
             {data.books.map((image, index) => (
+               <Link to={`/product/${image.id}`}>
               <div className='container'key={index}>
                 <img src={image.image_url} alt="book images" />
               </div>
+               </Link>
             ))}
+            
           </Flickity>
+         
         </>
     );
 }
