@@ -2,12 +2,7 @@ import React from 'react';
 import MainHero from './../../components/MainHero/MainHero';
 import CategoryDisplay from '../../components/CategoryDisplay/CategoryDisplay';
 import CardDisplay from './../../components/CardDisplay/CardDisplay';
-
-
-
 import { useCartCounter } from '../../contexts/CartContext';
-import Card from '../../components/Card/Card';
-
 
 const Home = () => {
 

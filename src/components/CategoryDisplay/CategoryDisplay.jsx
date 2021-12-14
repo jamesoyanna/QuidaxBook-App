@@ -26,7 +26,7 @@ const CategoryDisplay = () => {
           
             {data.books.map((image, index) => (
                <Link to={`/product/${image.id}`}>
-              <div className='container'key={index}>
+              <div className='container'key={image.id}>
                 <img src={image.image_url} alt="book images" />
               </div>
                </Link>

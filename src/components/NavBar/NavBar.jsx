@@ -32,11 +32,11 @@ const NavBar = () => {
         </ul>
         <div className="right-menu">
           <div className="wrap"></div>
-          <a href="cart" className="cart">
+          <span className="cart">
             <em className="fas fa-shopping-cart">
-              <span className="num-cart-product">0</span>
+              <span className="num-cart-product">{cartCounter}</span>
             </em>
-          </a>
+          </span>
         </div>
       </div>
 

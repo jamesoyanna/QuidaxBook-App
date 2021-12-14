@@ -1,6 +1,5 @@
 import React, {useState}  from "react";
 import "./card.css";
-import cartImg from "../../assets/image/b2.jpg";
 import { Link } from "react-router-dom";
 import Rating from "./../Rating";
 import { useCartCounter } from "../../contexts/CartContext";
