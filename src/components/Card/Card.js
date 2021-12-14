@@ -24,37 +24,42 @@ const Card = ({ book }) => {
     <>
       <div className="Card">
         <Link to={`/product/${book.id}`} className="Card">
-          <h3>{book.title}</h3>
-          <p className="subtitle">{book.subtitle}</p>
+          
+              <img
+                style={{ height: "200px", width: "140px" }}
+                src={book.image_url}
+                alt="book"
+              />
+           
+           
+              <h3>{book.title}</h3>
+              <p className="subtitle">{book.subtitle}</p>
 
-          <h4>{book.publisher}</h4>
+              <h4>{book.publisher}</h4>
 
-          <div className="card-start">
-            <Rating rating={book.rating} />
-          </div>
-          <img
-            style={{ height: "200px", width: "140px" }}
-            src={book.image_url}
-            alt="book"
-          />
+              <div className="card-start">
+                <Rating rating={book.rating} />
+              </div>
 
-          <div className="card-pric">
-            <h4> $ {book.price}</h4>
-            <h3>{book.number_of_purchases}</h3>
+              <div className="card-price">
+                <h4> $ {book.price}</h4>
+                <h3>{book.number_of_purchases}</h3>
 
-            <span>
-              {book.available_copies > 0 ? "In Stock" : "Out of Stock"}
-            </span>
+                <span>
+                  {book.available_copies > 0 ? "In Stock" : "Out of Stock"}
+                </span>
 
-            <h5>{book.release_date}</h5>
-          </div>
+                <h5>{book.release_date}</h5>
+              </div>
+           
+        
         </Link>
         <button onClick={submitProductToCart}>
           <img className="shopping-cart" src={cartImg} alt="shopping cart" />
           <p className="cart-text">Add to cart</p>
         </button>
       </div>
-      <Backdrop show={sideToggle} click={() => setSideToggle(false)} /> 
+      <Backdrop show={sideToggle} click={() => setSideToggle(false)} />
       <CartPage show={sideToggle} click={() => setSideToggle(false)} />
     </>
   );

@@ -123,3 +123,17 @@ button{
   color: #000000;
   font-weight: bold;
 }
+
+/* .book-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+} */
+
+.book-wrapper {
+  column-count: 2;
+  column-gap: 0;
+}
+.list {
+  display: inline-block;
+}

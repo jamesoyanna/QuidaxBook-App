@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./searchbox.css";
-import search from "../../assets/svg/loupe.svg";
+//import search from "../../assets/svg/loupe.svg";
 import "../NavBar/NavBar.css";
 // import { useParams, Redirect, Link } from "react-router-dom";
 // import CategoryPage from "../../pages/CategoryPage/CategoryPage";
@@ -67,7 +67,7 @@ const SearchBox = props => {
           style={{ cursor: "pointer" }}
           className="nav-btn"
         >
-          <img src={search} alt="search-icon" />
+          {/* <img src={search} alt="search-icon" /> */}
         </button>
       </div>
     </>
