@@ -3,7 +3,7 @@ import React from "react";
 export default function Rating(props) {
   const { rating } = props;
   return (
-    <div className="rating">
+    <div className="rating" style={{ color: "#ffe234" }}>
       <span>
         <i
           className={

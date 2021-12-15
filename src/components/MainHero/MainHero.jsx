@@ -4,10 +4,7 @@ import "./MainHero.css";
 const MainHero = () => {
     return (
         <div className="MainHero">
-            <h4 style={{textAlign: 'left'}}>Feature Books</h4>
-            <div className="header-container">
-                
-            </div>
+            <h4 className="header">Feature Books</h4>
             <div className="cards-container">
                 {[].map(card => {
                     return(

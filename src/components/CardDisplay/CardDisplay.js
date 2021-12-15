@@ -3,16 +3,16 @@ import Card from "./../Card/Card";
 import "./cardDisplay.css";
 const CardDisplay = ({ books }) => {
   return (
-    <div className="card-display">
-      <h4>All Books</h4>
-      
-        <div className="product-container">
-          {books.map((book) => {
-            return <Card key={book.id} book={book} />;
-          })}
-        </div>
+    <>
+      <div className="books">
+        <h4 className="header-text">
+          All Books
+        </h4>
+        {books.map((book) => {
+          return <Card key={book.id} book={book} />;
+        })}
       </div>
-   
+    </>
   );
 };
 

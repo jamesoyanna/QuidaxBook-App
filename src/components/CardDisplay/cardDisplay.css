@@ -1,30 +1,78 @@
-.card-display{
-    background: #ededf3;
-    border-top: solid 2px #e6e6e6;
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--gray-lighter);
+  margin-top:1.5rem;
+  margin-bottom: 1.5rem;
+}
+.books {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0rem 2rem;
+}
+.book {
+  width: 100%;
+  background-color: white;
+  padding:0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.book-detail{
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: flex-end;
+  background-color: transparent;
+  padding-left: 0.5rem;
+  flex-grow:1;
+}
+.book:hover {
+  box-shadow: 3px 3px 30px 0px rgba(0,0,0,0.35), -3px -3px 30px 0px rgba(255,255,255,0.9);
+}
+.thumbnail {
+  width: 8rem;
+  height: 100%;
 }
 
-
-.product-container{
-    width:90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    margin-left: 80px;
-   
+.books {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0rem 2rem;
+}
+.book {
+  width: 100%;
+  background-color: white;
+  padding:0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.book-detail{
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: flex-end;
+  background-color: transparent;
+  padding-left: 0.5rem;
+  flex-grow:1;
+}
+.book:hover {
+  box-shadow: 3px 3px 30px 0px rgba(0,0,0,0.35), -3px -3px 30px 0px rgba(255,255,255,0.9);
+}
+.thumbnail {
+  width: 8rem;
+  height: 100%;
 }
 
+.header-text{
+text-align: left;
+margin-top: 70px;
 
 
-.card-display-container {
- margin-left: 45px;
-  margin-right: 45px;
-}
-
- .card-display h4{
- text-align: left;
- margin-left: 55px;
- margin-bottom: 0px;
-   
 }

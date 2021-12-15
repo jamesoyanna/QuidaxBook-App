@@ -27,7 +27,7 @@ import "../NavBar/NavBar.css";
 
 
 
-const SearchBox = props => {
+const SearchBox = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   // Handling imput change
