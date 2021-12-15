@@ -243,33 +243,4 @@ align-items: left;
 
 
 
-/* only screen and (min-width: 480px){
-   .featured-center {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: 1fr 1fr;
-  }
-} */
-
-
-@media screen and (max-width: 480px) {
-  .single-product-center {
-    grid-template-columns: 1fr;
-  }
-
-  .section-center {
-  width: var(--fixed-width);
-
-  margin-left: 80px;
-}
-
- .featured-center {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: 1fr;
-  }
-
- 
-}
-
 

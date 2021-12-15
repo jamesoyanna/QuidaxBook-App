@@ -4,33 +4,30 @@ This project is a simple ecommerce book application use for purchase of book ite
 
 ## Application Features
 -A Home view with the display of various book items.
--Mood History - Display the moods of the cat on button click.
+- A cart page for the display of book items added to Cart
+- A Hero slider section for the dispaly of featured books.
+- Add to  cart functionality - adding of book to cart
+- Disabling a book product button if book is not in stock
 
 
 
 
 
-##### - If giving more time and incentives for this project, I would want to implement other functionality of the application.
-
-##### - I am currently refactoring the application where necessary.
-
-
-### The application is also fully deploy and hosted on Netlify. Live view of the application Demo can be found here- [Mood Tracker App](https://mood-tracker-app.netlify.app/)
+### The application is also fully deploy and hosted on Netlify. Live view of the application Demo can be found here- [Quidax Book App](https://quidax-book-app.netlify.app/)
 
 ## Pictutial View of the Application
 
-To select a mood emoji by clicking on any of the emojis.
-![Initial state](https://user-images.githubusercontent.com/26815113/144429819-c08065d3-7c9c-4b52-bcfc-1edddf1c2b9c.JPG)
+Home page display of book items
+(![home-page](https://user-images.githubusercontent.com/26815113/146249588-ed52a8aa-eb1b-486c-af49-3a10ae7d899f.JPG)
+)
+
+Single Book Display
+![single-book](https://user-images.githubusercontent.com/26815113/146249837-7caa0957-be02-4d41-abb5-e56e57e892ce.JPG)
 
 
-Click on the save modd button to create a mood for the cat.
+Display of Items added to cart
+![cart-items](https://user-images.githubusercontent.com/26815113/146250087-df6e6445-1248-4530-a3eb-602758c05dff.JPG)
 
-![second mood](https://user-images.githubusercontent.com/26815113/144430594-3a12d7d8-bdb1-49e4-935a-753e579b0216.JPG)
-
-
-Display each mood for the cat
-
-![mood Display](https://user-images.githubusercontent.com/26815113/144431058-32d6d996-2d48-4d1e-8a9c-46ba916fa378.JPG)
 
 
 ## How to use the application
@@ -46,16 +43,19 @@ Display each mood for the cat
 - [License](#license)
 
 ## Getting Started
+#### Dependencies
+The project is built with 
+- React Js
+- GraphQL
+- Apollo Client
 
-The project has two branches: `master`, `dev`.
+It uses Node.js >= 12.18.3
 
-* `master` The master branch contains the full source code on the solution I have developed for excercise.
-* `dev` The dev branch contains code under development. 
 
  ## Project Folder structure.
 
 ```
-	mood-tracker-app
+	quidaax-book-app
 	├── README.md
 	├── package.json
 	├── .gitignore
@@ -65,35 +65,62 @@ The project has two branches: `master`, `dev`.
 	│   └── manifest.json
 	└── src
 	      └── components
-		     ├── Mood
-			      ├── Mood.js
-				  ├── Mood.css
-			 ├── MoodHistory
-			       ├── MoodHistory.js
-                    ├── MoodHistory.css
-			 ├── MoodScreen
-			       ├── MoodScreen.js
-				   ├── MoodScreen.css
+		     ├── Backdrop
+			      ├── Backdrop.js
+				  ├── backdrop.css
 			 ├── Card
-			 ├── Container
-			
-	      └── Redux
-	              └── moodSlice.js
+			       ├── Card.js
+                    ├── card.css
+			 ├── CategoryDisplay
+			       ├── CategoryDisplay.js
+				   ├── categoryDisplay.css
+			 ├── MainHero
+			       ├── MainHero.js.js
+				   ├── mainhero.css
+			 ├── Navbar
+			       ├── Navbar.js
+				   ├── navbar.js
+			 ├── Rating.js
+	      └── contexts
+	              └── CartContext.js
 		                
-				  ├── store.js
-		  └── Images
-		  └── App.js
+		    ├── graphQL
+		        └── queries.js
+
+			├── Pages
+			     ├── Book
+				      ├── BookPage.js
+					  ├── bookPage.css
+			     ├── CartItem
+				      ├── CartItem.js
+					  ├── cartItem.css
+
+			     ├── CategoryPage
+				      ├── CategoryPage.js
+					  ├── categoryPage.css
+                 
+				 ├── Home
+				      ├── Home.js
+					  
+		   └── App.js
 		  └── App.css
 		  └── index.css
 		  └── index.js
 
 ```
+### Prerequisites
+Ensure you have NodeJS installed by entering node -v on your terminal If you don't have NodeJS installed, go to the NodeJS Website, and follow the download instructions
+
 
 ### Tools Required
-The following tools is required to develop and run this application:
+The following tools is required to run this application:
 
 * A text editor like Visual Studio Code
 * Command Line
+
+### Getting the source code
+You can clone the repository directly using this command:
+git clone git@github.com:jamesoyanna/QuidaxBook-App.git
 
 ### Installation
 Installation steps:
@@ -103,7 +130,7 @@ Your computer must have installed nodejs, and yarn to run this application You c
 ![nodejs](https://user-images.githubusercontent.com/26815113/132867561-bf2ec1a2-cd63-461f-95dd-e95c1c6676c7.PNG)
 
 ## Install Npm Packages
-You must have to install packages. You can do this by running yarn or npm install from the root of the project to install all the necessary dependencies.
+After clonning the application, You will have to install all the dependencies and packages. You can do this by running yarn or npm install from the root of the project folder to install.
 
 ### Development server
 
@@ -113,12 +140,18 @@ You must have to install packages. You can do this by running yarn or npm instal
   ``` 
 Run yarn start or npm stall from the root of your project to start a dev server. 
 Navigate to http://localhost:3000/. 
-The app will automatically reload if you change any of the source files.
+The app will automatically reload if you make changes to any of the source files.
   ```
 
 ## Deployment
 
 You can deploy the application on any server. You can make use of Netlify,a git-based workflow and powerful serverless platform to build, deploy, and collaborate on web apps. Visit [Netlify](https://www.netlify.com/)
+
+## Assumptions/ Thought process: 
+
+
+
+
 
 
 ## Author
@@ -128,13 +161,14 @@ You can deploy the application on any server. You can make use of Netlify,a git-
 * [LinkedIn](https://www.linkedin.com/in/jamesoyanna)
 
 
-`Mood Tracker App` is open source software
-
+`Quidax Book App` Open source software
 ## Resources
 
 I made use of these `resources` during development.
 
 * [New React Js Doc](https://beta.reactjs.org/)
+  [GraphQl](https://graphql.org/learn/)
+    [Apollo Client](https://www.apollographql.com/docs/react/)
 * [casscading Style Sheet (CSS)
-* [Redux](https://redux.js.org/)
+* [React Context Api](https://reactjs.org/docs/context.html)
 *
