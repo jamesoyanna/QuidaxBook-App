@@ -55,13 +55,16 @@
 }
 
 
-
 .book-page-header{
   min-height: 10vh;
   display: grid;
   place-items: center;
   background: #fff;
   color: var(--grey-500);
+  background: #fff;
+ display: flexbox;
+ text-align: left;
+  margin-top: 100px;
 }
 
 .book-page-title {

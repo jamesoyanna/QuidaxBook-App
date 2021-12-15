@@ -17,15 +17,14 @@ const Home = () => {
     if(loading) return <div style={{color: "lightgreen", fontSize: "18px"}}>Loading...</div>
     if(error) return <div style={{color: "red"}}>An Error occured</div>
     return (
-        <div>
+        <>
             <MainHero />
             <CategoryDisplay books = {data.books}  />
             {/* <Card /> */}
             <CardDisplay books = {data.books}  />
        
        
-       
-        </div>
+        </>
     );
 }
 export default Home;

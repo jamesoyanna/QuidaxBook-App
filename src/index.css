@@ -1,17 +1,274 @@
-
-body{
-    font-family:poppins;
-    margin:0px;
-    padding: 0px;
-   font-family: 'Ubuntu', sans-serif;
-    background-color: #ffffff;
-}
-*{
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* { 
     box-sizing: border-box;
+    --primary-color: #65C100;
+    --gray-light:rgba(0,0,0,0.25);
+    --gray-dark:rgba(0,0,0,0.8);
+    --gray-lighter:rgba(0,0,0,0.15);
+ }
+ html,body { 
+    font-family: 'Roboto', 'Ubuntu Condensed', sans-serif;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+ }
+
+ h1,h2,h3,h4,h5 {
+   padding: 0;
+   margin: 0;
+ }
+
+ /* Color Utilities*/
+.bg-white {
+    background-color: white;
 }
-ul{
-    list-style: none;
+.bg-black {
+  background-color: rgba(0,0,0,1);
 }
-a{
-    text-decoration: none;
+.bg-gray-light {
+    background-color: var(--gray-light);
+}
+.bg-gray-lighter {
+    background-color: rgba(0,0,0,0.05);
+}
+.text-gray-light {
+    color: var(--gray-light);
+}
+.text-gray-lighter {
+    color: var(--gray-lighter);
+}
+.text-gray-dark {
+    color: var(--gray-dark);
+}
+.text-black {
+  color: rgba(0,0,0,1)
+}
+.text-white {
+  color:white;
+}
+.text-green {
+  color: var(--primary-color);
+}
+.text-white-dull {
+  color: rgba(233, 233, 233, 0.541);
+}
+.text-yellow {
+  color: rgb(224, 211, 21)
+}
+.text-red {
+  color: rgba(192, 10, 10, 0.767);
+}
+.bg-green {
+    background-color: var(--primary-color);
+}
+/* Font Utilities*/
+.text-xs {
+  font-size: 0.75rem;
+}
+.text-sm {
+   font-size: 0.80rem; 
+}
+.text-md {
+    font-size: 0.875rem;
+}
+.text-lg {
+    font-size: 1.125rem;
+    letter-spacing: 0.1rem;
+}
+.text-xl {
+    font-size: 1.25rem;
+    letter-spacing: 0.2rem;
+}
+.truncate {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.font-thin {
+    font-weight: 100;
+}
+.font-light {
+    font-weight: 300;
+}
+.font-normal {
+    font-weight: 400;
+}
+.font-semibold {
+    font-weight: 500;
+}
+.font-bold {
+    font-weight: 600;
+}
+.fill-current {
+  fill: currentColor;
+}
+/* Shadow Utilities*/
+.shadow-shift {
+    box-shadow: 1px 0px 20px 0px rgba(0,0,0,0.25) ;
+}
+.shadow-sm{
+  box-shadow: 0px 2px 10px 0px rgba(241, 177, 177, 0.25) ;
+}
+.shadow-lg {
+  -webkit-box-shadow: 0px 8px 18px 0px rgba(0,0,0,0.55);
+  -moz-box-shadow: 0px 8px 18px 0px rgba(0,0,0,0.55);
+  box-shadow: 0px 8px 18px 0px rgba(0,0,0,0.55);
+}
+.shadow-inner-lg {
+  -webkit-box-shadow: inset 0px -109px 85px 20px rgba(0,0,0,0.95);
+  -moz-box-shadow: inset 0px -109px 85px 20px rgba(0,0,0,0.95);
+  box-shadow: inset 0px -109px 85px 20px rgba(0,0,0,0.95);
+}
+/* Border Radius Utilities*/
+.rounded-full {
+  border-radius: 9999px;
+}
+/* Opacity Utilities*/
+.opacity-50 {
+  opacity: 0.5;
+}
+/* Width & Height Utilities*/
+.w-full {
+  width: 100%;
+}
+.h-full {
+  height: 100%;
+}
+.h-1 {
+  height: 1px;
+}
+.w-1{
+  width:2px;
+} 
+.w-3 {
+  width: 0.875rem;
+}
+.w-4 {
+  width: 1rem;
+}
+.w-6 {
+  width: 1.5rem;
+}
+.w-8 {
+  width: 2rem;
+}
+.w-10 {
+  width: 2.5rem;
+}
+.w-12 {
+  width: 3rem;
+}
+.w-16 {
+  width: 4rem;
+}
+.h-3 {
+  height: 0.875rem;
+}
+.h-4 {
+  height: 1rem;
+}
+.h-6 {
+  height: 1.5rem;
+}
+.h-8 {
+  height: 2rem;
+}
+.h-10 {
+  height: 2.5rem;
+}
+.h-12 {
+  height: 3rem;
+}
+.h-16 {
+  height: 4rem;
+}
+/* Padding & margin utilities*/
+.p-0 {
+  padding: 0;
+}
+.p-4 {
+  padding: 4px;
+}
+
+.py-8 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.mt-4{
+  margin-top: 2rem;
+}
+.mr-4 {
+  margin-right: 2rem;
+}
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+.mb-2 {
+  margin-bottom: 0.7rem;
+}
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+.mr-1 {
+  margin-right: 0.5rem;
+}
+.ml-1 {
+  margin-left: 0.5rem;
+}
+/* Pointer Utility */
+.cursor-pointer {
+  cursor: pointer;
+}
+/* Overflow utilities*/
+.overflow-hidden {
+  overflow: hidden;
+}
+/* Position Utilities*/
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.inset-right {
+  top: -4px;
+  right: -2px;
+}
+.inset-right-0 {
+  top: 0;
+  right: 2rem;
+}
+/*Display-utilities*/
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hidden {
+  display:none;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+.flex-box {
+  display: flex;
+}
+.justify-between {
+  justify-content: space-between;
+}
+/* Border Utility*/
+.border-left {
+  border-left: 1px solid rgba(0,0,0,0.25)
+}
+/*Section Styles*/
+.container {
+  min-height: calc(100% - 4rem);
+  margin-top: 6rem;
+}
+/* badge */
+.badge {
+  width: 1rem;
+  height: 1rem;
 }

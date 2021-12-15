@@ -24,7 +24,8 @@ const BOOK_QUERY = gql`
 }
 }
 `
-const BookPage = ({books}) => {
+const BookPage = () => {
+
      const { addToCart } = useCartCounter();
      const { id } = useParams();
     const { data, loading, error } = useQuery(BOOK_QUERY,{
@@ -32,6 +33,8 @@ const BookPage = ({books}) => {
             id
         }
     });
+
+
   
 
      if(loading) return <div>Loading...</div>
@@ -40,9 +43,11 @@ const BookPage = ({books}) => {
     return (
 
       <>
+      
     <section className="book-page-header">
+     
       <div className="section-center">
-        
+         <h2 className="header-text" style={{textAlign: 'left'}}> Single book Display</h2>
       </div>
     </section>     
        <section className="single-product section">
@@ -72,7 +77,7 @@ const BookPage = ({books}) => {
             <span className="single-product-desc">
                {data.book.subtitle}
             </span>
-            <button onClick={ addToCart} className="addToCartBtn">add to cart</button>
+            <button   onClick={ addToCart} className="addToCartBtn">add to cart</button>
           </div>
         </article>
       </div>
