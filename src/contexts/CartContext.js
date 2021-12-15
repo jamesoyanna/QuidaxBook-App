@@ -113,6 +113,7 @@ const CartContextProvider = (props) => {
     increaseCartCounter,
     decreaseCartCounter,
     cartCounter,
+    
   };
 
   return (

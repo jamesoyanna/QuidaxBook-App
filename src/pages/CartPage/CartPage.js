@@ -8,8 +8,13 @@ const CartPage = ({
   show,
 }) => {
   
-    const { cart, incrementItemAmount, decrementItemAmount, removeFromCart } =
-      useCartCounter();
+    const {
+      cart,
+      incrementItemAmount,
+      decrementItemAmount,
+      removeFromCart,
+      getSubTotal,
+    } = useCartCounter();
   const sideDrrawerClass = ["sidedrawer"];
 
 
@@ -34,10 +39,9 @@ const CartPage = ({
             <div className="checkout">
               <div className="total">
                 <div>
-                  <div className="Subtotal">Sub-Total</div>
-                  <div className="items">2 items</div>
+                  <div className="Subtotal"></div>
                 </div>
-                <div className="total-amount">$6.18</div>
+                <div className="total-amount">{getSubTotal()}</div>
               </div>
               <button className="button">Checkout</button>
             </div>
