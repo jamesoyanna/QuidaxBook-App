@@ -38,8 +38,9 @@ const CartPage = ({
             ))}
             <div className="checkout">
               <div className="total">
-                <div></div>
-                <div className="Subtotal">Sub Total</div>
+                <div>
+                  <div className="Subtotal">Sub Total</div>
+                </div>
                 <div className="total-amount"> ${getSubTotal()}</div>
               </div>
               <button className="button">Checkout</button>

@@ -105,8 +105,7 @@ const Card = ({ book }) => {
                 </span>
               </div>
             </div>
-            {/* End of book one */}
-            {/* </div> */}
+         
           </Link>
         </div>
 
