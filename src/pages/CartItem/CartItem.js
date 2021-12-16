@@ -24,7 +24,7 @@ export default function CartItem({
         decrementItemAmount(item)
       };
 
-  const { image_url, title, price, amount, total,subtitle } = item; // De-structure cart-item details
+  const { image_url, title, price, amount, total, publisher } = item; // De-structure cart-item details
 
   return (
     <>
@@ -35,11 +35,8 @@ export default function CartItem({
           </div>
           <div className="about">
             <h5 className="title">{title}</h5>
-            <h3 className="subtitle">{subtitle}</h3>
-            <span
-              onClick={() => removeFromCart(item)}
-              className="remove about"
-            >
+            <h4 className="subtitle">{publisher}</h4>
+            <span onClick={() => removeFromCart(item)} className="remove about">
               Remove
             </span>
           </div>
