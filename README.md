@@ -41,7 +41,8 @@ Single Book Display
 
 Display of Items added to cart
 
-![cart-items](https://user-images.githubusercontent.com/26815113/146250087-df6e6445-1248-4530-a3eb-602758c05dff.JPG)
+![cart](https://user-images.githubusercontent.com/26815113/146326731-d276d151-97f9-49e4-91a4-938460a1efcd.JPG)
+
 
 
 
