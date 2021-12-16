@@ -32,7 +32,7 @@ This project is a simple ecommerce book application use for purchase of book ite
 Home page display of book items
 
 
-[home-page](https://user-images.githubusercontent.com/26815113/146249588-ed52a8aa-eb1b-486c-af49-3a10ae7d899f.JPG)
+![home-page](https://user-images.githubusercontent.com/26815113/146249588-ed52a8aa-eb1b-486c-af49-3a10ae7d899f.JPG)
 )
 
 Single Book Display
@@ -41,7 +41,7 @@ Single Book Display
 
 Display of Items added to cart
 
-[cart-items](https://user-images.githubusercontent.com/26815113/146250087-df6e6445-1248-4530-a3eb-602758c05dff.JPG)
+![cart-items](https://user-images.githubusercontent.com/26815113/146250087-df6e6445-1248-4530-a3eb-602758c05dff.JPG)
 
 
 
