@@ -1,5 +1,6 @@
-# Quidax Book App
+## Quidax Book App
 
+### About Project
 This project is a simple ecommerce book application use for purchase of book items. The application is built with React JS. 
 
 ## Application Features
@@ -7,18 +8,31 @@ This project is a simple ecommerce book application use for purchase of book ite
 - A cart page for the display of book items added to Cart
 - A Hero slider section for the dispaly of featured books.
 - Add to  cart functionality - adding of book to cart
-- Disabling a book product button if book is not in stock
+- Disabling a book product button if book is not in stock.
+
+## Application Functionalities
+- When an item is added to the cart by the clicking of the "Add to cart" button, the cart page displays on the sidebar showing the list of book items that have been added.
+
+- The subtotal of the amount for the books is also displayed
+
+- A minus and plus buttons are also implemented on the cart page. This is to add more or remove items from the cart.
+
+- With the click of a single book item, one is redirected to the book page where you can find details about the book.
+
+- You can also add the book to your cart using the button on the book page.
 
 
 
 
 
-### The application is also fully deploy and hosted on Netlify. Live view of the application Demo can be found here- [Quidax Book App](https://quidax-book-app.netlify.app/)
+#### The application is also fully deploy and hosted on Netlify. Live view of the application Demo can be found here- [Quidax Book App](https://quidax-book-app.netlify.app/)
 
-## Pictutial View of the Application
+### Pictotial View of the Application
 
 Home page display of book items
-(![home-page](https://user-images.githubusercontent.com/26815113/146249588-ed52a8aa-eb1b-486c-af49-3a10ae7d899f.JPG)
+
+
+[home-page](https://user-images.githubusercontent.com/26815113/146249588-ed52a8aa-eb1b-486c-af49-3a10ae7d899f.JPG)
 )
 
 Single Book Display
@@ -26,7 +40,8 @@ Single Book Display
 
 
 Display of Items added to cart
-![cart-items](https://user-images.githubusercontent.com/26815113/146250087-df6e6445-1248-4530-a3eb-602758c05dff.JPG)
+
+[cart-items](https://user-images.githubusercontent.com/26815113/146250087-df6e6445-1248-4530-a3eb-602758c05dff.JPG)
 
 
 
@@ -43,13 +58,16 @@ Display of Items added to cart
 - [License](#license)
 
 ## Getting Started
-#### Dependencies
-The project is built with 
-- React Js
-- GraphQL
-- Apollo Client
 
-It uses Node.js >= 12.18.3
+#### Dependencies
+The project is built with;
+* [React JS](https://beta.reactjs.org/) -Library for building user interfaces
+* [GraphQL](https://graphql.org/learn/) - Open-source data query and manipulation language for APIs
+* [Apollo Client](https://www.apollographql.com/docs/react/) - Production-ready, caching GraphQL client
+* [CSS]()
+
+It uses [Node.js >= 12.18.3](https://nodejs.org/en/) 
+
 
 
  ## Project Folder structure.
@@ -148,10 +166,66 @@ The app will automatically reload if you make changes to any of the source files
 You can deploy the application on any server. You can make use of Netlify,a git-based workflow and powerful serverless platform to build, deploy, and collaborate on web apps. Visit [Netlify](https://www.netlify.com/)
 
 ## Assumptions/ Thought process: 
+I have assumed that this is a not-so-large application and may require minimal state management. 
+So to avoid over-engineering the solution,  I used the React Context API for my state management compared to using other state management libraries like Redux.
+
+ The Context API  provides enables me to share my application state, data, and functionalities between components without having to explicitly pass a prop through every level of my component tree.
 
 
+I have assumed that the data may not be persisted in local storage. So when a book item is added to the cart, on the refresh of the application, the value of the cart state gets reinitialized and its state is set back to zero.
 
 
+## My Approach to the challenge:
+I created the project using create-react-app, a popular command-line tool that enables me to set up react applications with zero or minimal configuration and setup.
+
+Next was to load the data that is stored in the database. 
+Having gone through this https://quidax-feec-graphql.herokuapp.com/graphql GraphQL API documentation sent with this challenge,
+I implemented GraphQL Queries with Apollo CLient and integrate them with the react UI. 
+Using  Apollo Client, I was able to send queries with React useQuery React hook.
+
+I first of all defined the GraphQL query I want to
+send to the API.
+
+It looks like this;
+```
+import { gql } from "@apollo/client";
+<!--- GraphQL query to fetch all book items -->
+
+export const BOOK_QUERY = gql`
+  {
+    books {
+      id
+      title
+      subtitle
+      publisher
+      release_date
+      number_of_purchases
+      rating
+      price
+      image_url
+      available_copies
+      likes
+      tags {
+        name
+      }
+    }
+  }
+`;
+```
+
+What’s actually happening with this code is that
+ 
+The BOOK_QUERY variable uses gql, a library that uses tagged template literals to parse the GraphQL query document I defined. 
+This query document is then passed into the useQuery hook in the BookPage component I created.
+ 
+This hook returns three items that are relevant for my purposes; 
+loading:  This is true as long as the request is still ongoing and the response hasn’t been received.
+error: In case the request fails, this field will contain information about what exactly went wrong.
+data: This is the actual data, in this case, book items that I received from the server. 
+
+Then I  executed and tested the query in the graphQL Playground (against the application schema) and retrieve the results from the GraphQL server. 
+
+The project was styled using CSS. The React components were implemented using the functional component.
 
 
 ## Author
@@ -167,8 +241,9 @@ You can deploy the application on any server. You can make use of Netlify,a git-
 I made use of these `resources` during development.
 
 * [New React Js Doc](https://beta.reactjs.org/)
-  [GraphQl](https://graphql.org/learn/)
+
+ * [GraphQl](https://graphql.org/learn/)
     [Apollo Client](https://www.apollographql.com/docs/react/)
 * [casscading Style Sheet (CSS)
 * [React Context Api](https://reactjs.org/docs/context.html)
-*
+
