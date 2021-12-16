@@ -228,6 +228,12 @@ Then I  executed and tested the query in the graphQL Playground (against the app
 The project was styled using CSS. The React components were implemented using the functional component.
 
 
+### Requirement not completed:
+I have been working on implementing the search functionality on the application. 
+This feature is almost in near compIetion. I am yet to complete it. 
+
+
+
 ## Author
 
 #### James Oyanna
