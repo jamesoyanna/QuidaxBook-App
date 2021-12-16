@@ -183,6 +183,11 @@ So to avoid over-engineering the solution,  I used the React Context API for my 
 - I also have assumed that the data may not be persisted in local storage. So when a book item is added to the cart, on the refresh of the application, the value of the cart state gets reinitialized and its state is set back to zero.
 
 
+### How I manage the application state:
+First, I created the cart context, which I use to create provide my application state and functions across different components.
+
+I used the useContext hooks to access my state in the component I need it.
+
 ## My Approach to the challenge:
 I created the project using create-react-app, a popular command-line tool that enables me to set up react applications with zero or minimal configuration and setup.
 
