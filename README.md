@@ -27,13 +27,13 @@ This project is a simple ecommerce book application use for purchase of book ite
 
 #### The application is also fully deploy and hosted on Netlify. Live view of the application Demo can be found here- [Quidax Book App](https://quidax-book-app.netlify.app/)
 
-### Pictotial View of the Application
+### Pictorial View of the Application
 
 Home page display of book items
 
 
 ![home-page](https://user-images.githubusercontent.com/26815113/146249588-ed52a8aa-eb1b-486c-af49-3a10ae7d899f.JPG)
-)
+
 
 Single Book Display
 ![single-book](https://user-images.githubusercontent.com/26815113/146249837-7caa0957-be02-4d41-abb5-e56e57e892ce.JPG)
@@ -143,8 +143,9 @@ git clone git@github.com:jamesoyanna/QuidaxBook-App.git
 ### Installation
 Installation steps:
 
-##Node.js and Yarn or Npm
+Node.js and Yarn or Npm
 Your computer must have installed nodejs, and yarn to run this application You can download Node.js from https://nodejs.org and yarn from https://yarnpkg.com/lang/en/docs/install/ . NPM comes bundled with Node.js
+
 ![nodejs](https://user-images.githubusercontent.com/26815113/132867561-bf2ec1a2-cd63-461f-95dd-e95c1c6676c7.PNG)
 
 ## Install Npm Packages
@@ -166,13 +167,13 @@ The app will automatically reload if you make changes to any of the source files
 You can deploy the application on any server. You can make use of Netlify,a git-based workflow and powerful serverless platform to build, deploy, and collaborate on web apps. Visit [Netlify](https://www.netlify.com/)
 
 ## Assumptions/ Thought process: 
-I have assumed that this is a not-so-large application and may require minimal state management. 
+- I have assumed that this is a not-so-large application and may require minimal state management. 
 So to avoid over-engineering the solution,  I used the React Context API for my state management compared to using other state management libraries like Redux.
 
- The Context API  provides enables me to share my application state, data, and functionalities between components without having to explicitly pass a prop through every level of my component tree.
+ The Context API enables me to share my application state, data, and functionalities between components without having to explicitly pass a prop through every level of my component tree.
 
 
-I have assumed that the data may not be persisted in local storage. So when a book item is added to the cart, on the refresh of the application, the value of the cart state gets reinitialized and its state is set back to zero.
+- I also have assumed that the data may not be persisted in local storage. So when a book item is added to the cart, on the refresh of the application, the value of the cart state gets reinitialized and its state is set back to zero.
 
 
 ## My Approach to the challenge:
@@ -180,7 +181,9 @@ I created the project using create-react-app, a popular command-line tool that e
 
 Next was to load the data that is stored in the database. 
 Having gone through this https://quidax-feec-graphql.herokuapp.com/graphql GraphQL API documentation sent with this challenge,
-I implemented GraphQL Queries with Apollo CLient and integrate them with the react UI. 
+
+I implemented GraphQL Queries with Apollo CLient and integrate them with the react UI.
+
 Using  Apollo Client, I was able to send queries with React useQuery React hook.
 
 I first of all defined the GraphQL query I want to
@@ -215,13 +218,17 @@ export const BOOK_QUERY = gql`
 
 What’s actually happening with this code is that
  
-The BOOK_QUERY variable uses gql, a library that uses tagged template literals to parse the GraphQL query document I defined. 
+The BOOK_QUERY variable uses gql, a library that uses tagged template literals to parse the GraphQL query document I defined.
+
 This query document is then passed into the useQuery hook in the BookPage component I created.
  
 This hook returns three items that are relevant for my purposes; 
-loading:  This is true as long as the request is still ongoing and the response hasn’t been received.
-error: In case the request fails, this field will contain information about what exactly went wrong.
-data: This is the actual data, in this case, book items that I received from the server. 
+
+1 - loading:  This is true as long as the request is still ongoing and the response hasn’t been received.
+
+2 - Error: In case the request fails, this field will contain information about what exactly went wrong.
+
+3 - data: This is the actual data, in this case, book items that I received from the server. 
 
 Then I  executed and tested the query in the graphQL Playground (against the application schema) and retrieve the results from the GraphQL server. 
 
