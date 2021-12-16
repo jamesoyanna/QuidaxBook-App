@@ -1,5 +1,7 @@
 import React from "react";
 import "./cartItem.css";
+import minus from "../../assets/image/minus.svg";
+import plus from "../../assets/image/plus.svg";
 
 import { useCartCounter } from "../../contexts/CartContext";
 
@@ -12,7 +14,8 @@ export default function CartItem({
   ...rest
 }) {
   
-    const { decreaseCartCounter, increaseCartCounter } = useCartCounter();
+    const { decreaseCartCounter, increaseCartCounter, getSubTotal } =
+      useCartCounter();
 
     const incrementCart = () => {
       increaseCartCounter();
@@ -24,37 +27,67 @@ export default function CartItem({
         decrementItemAmount(item)
       };
 
-  const { image_url, title, price, amount, total, publisher } = item; // De-structure cart-item details
+  const { image_url, title, price, amount, publisher } = item; // De-structure cart-item details
 
   return (
     <>
-      <div className="CartContainer">
-        <div className="Cart-Items">
-          <div className="image-box">
-            <img src={image_url} style={{ height: "100px" }} alt="cart" />
+      <div className="cart-container">
+        <div className="item">
+          <div className="buttons">
+            <span className="delete-btn"></span>
+            <span className="like-btn"></span>
           </div>
-          <div className="about">
-            <h5 className="title">{title}</h5>
-            <h4 className="subtitle">{publisher}</h4>
-            <span onClick={() => removeFromCart(item)} className="remove about">
+          <div className="image">
+            <img
+              style={{ height: "100px", width: "70px" }}
+              src={image_url}
+              alt=""
+            />
+          </div>
+          <div className="description">
+            <h4 style={{ whiteSpace: "nowrap" }}>{title}</h4>
+            <span>{publisher}</span>
+            <span
+              style={{ color: "#000" }}
+              onClick={() => removeFromCart(item)}
+            >
               Remove
             </span>
           </div>
-
-          <div className="counter">
-            {/* Increase number of chosen cart product */}
-            <div onClick={incrementCart} className="btn">
-              +
+          <div className="quantity">
+            <div
+              style={{ marginLeft: "60px", marginBottom: "10px" }}
+              className=""
+            >
+              ${price}
             </div>
-            <div className="count">{amount}</div>
-            {/* Decrease number of chosen cart product */}
-            <div onClick={decrementCart} className="btn">
-              -
+            <button
+              onClick={decrementCart}
+              className="minus-btn"
+              type="button"
+              name="button"
+            >
+              <img src={minus} alt="" />
+            </button>
+            <span className="amount">{amount} </span>
+            <button
+              onClick={incrementCart}
+              className="plus-btn"
+              type="button"
+              name="button"
+            >
+              <img src={plus} alt="" />
+            </button>
+            <div
+              style={{
+                marginLeft: "60px",
+                marginTop: "10px",
+                fontWeight: "bold",
+              }}
+              className=""
+            >
+              ${getSubTotal()}
             </div>
-          </div>
-          <div>{total}</div>
-          <div className="prices">
-            <div className="amount">${price}</div>
           </div>
         </div>
       </div>

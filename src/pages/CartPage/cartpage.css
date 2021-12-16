@@ -123,17 +123,30 @@ color: #f4f4f4;
     padding-top: 35px;
 }
 
-/* .main-container{
-	margin: 0;
-	padding: 0;
-	background: linear-gradient(to bottom right, #E3F0FF, #FAFCFF);
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-    overflow: visible;
+/* Responsive */
+/* @media (max-width: 800px) {
+  .shopping-cart {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  .item {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+ 
+  .image,
+  .quantity,
+  .description {
+    width: 100%;
+    text-align: center;
+    margin: 6px 0;
+  }
+  .buttons {
+    margin-right: 20px;
+  }
 } */
-
 
 
 
