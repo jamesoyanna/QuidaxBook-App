@@ -41,6 +41,12 @@ Single Book Display
 
 Display of Items added to cart
 
+The minus and  plus buttons can be used to deceease  and increase items added to cart.
+
+Use the remove button to remove an item from cart.
+
+The amount for the sum total of the book item is calculated and and displayed at the subtotal 
+
 ![cart](https://user-images.githubusercontent.com/26815113/146326731-d276d151-97f9-49e4-91a4-938460a1efcd.JPG)
 
 
