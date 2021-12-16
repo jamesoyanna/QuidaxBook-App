@@ -48,7 +48,7 @@ export default function CartItem({
             <h4 style={{ whiteSpace: "nowrap" }}>{title}</h4>
             <span>{publisher}</span>
             <span
-              style={{ color: "#000" }}
+              style={{ color: "#000", fontSize: "17px" }}
               onClick={() => removeFromCart(item)}
             >
               Remove
