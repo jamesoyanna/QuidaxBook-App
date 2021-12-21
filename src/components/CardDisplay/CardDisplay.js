@@ -5,7 +5,7 @@ import "./cardDisplay.css";
 const CardDisplay = ({ books }) => {
   return (
     <>
-      <div className="books">
+      <div className="books" style={{}}>
     
         <h4 className="header-text">
           All Books

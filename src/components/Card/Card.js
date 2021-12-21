@@ -59,10 +59,8 @@ const Card = ({ book }) => {
                   <h4>{book.publisher}</h4>
                 </span>
                 <span className="w-full text-black text-xs md:text-xs font-light">
-                  11
-                  {/* 11{book.tags.map((tag) => (
-                    <li >{tag.name}</li>
-                  ))} */}
+                  moltivational
+                 
                 </span>
                 <span className="w-full text-black text-xs md:text-xs font-light mb-1">
                   2021

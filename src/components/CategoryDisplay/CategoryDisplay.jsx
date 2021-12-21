@@ -25,14 +25,16 @@ const CategoryDisplay = () => {
       static
       
           > 
-          
+            
             {data.books.map((image, i) => (
                <Link key={i} to={`/product/${image.id}`}>
               <div className='container'>
+                {/* <h4>I am super</h4> */}
                 <img src={image.image_url}  alt="book images" />
               </div>
                </Link>
             ))}
+           
             
           </Flickity>
          
