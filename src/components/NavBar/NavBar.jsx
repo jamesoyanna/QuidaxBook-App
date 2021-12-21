@@ -7,19 +7,9 @@ import logowhite from "../../assets/image/logo-white.png";
 
 import { useCartCounter } from "../../contexts/CartContext";
 
-//import Cart from '../Cart/Cart';
-
 const NavBar = () => {
   const {cartCounter} = useCartCounter();
 
-     // Search
-  // const search = (term) => {
-    
-      
-  // };
-
- 
-    
     return (
       <>
        <div className="w-full h-full">
@@ -61,6 +51,7 @@ const NavBar = () => {
                     />
                   </svg>
                 </div>
+            
                 <div className="search-box h-10 relative bg-white">
                   <input
                     id="search-input"

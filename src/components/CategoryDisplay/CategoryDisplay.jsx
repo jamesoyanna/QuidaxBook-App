@@ -16,12 +16,14 @@ const CategoryDisplay = () => {
       <>
      
           <Flickity
+          
           className={'carousel'} 
       elementType={'div'} 
       options={flickityOptions} 
       disableImagesLoaded={false} 
       reloadOnUpdate 
       static
+      
           > 
           
             {data.books.map((image, i) => (

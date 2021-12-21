@@ -6,7 +6,7 @@ This project is a simple ecommerce book application use for purchase of book ite
 ## Application Features
 -A Home view with the display of various book items.
 - A cart page for the display of book items added to Cart
-- A Hero slider section for the dispaly of featured books.
+- A Hero slider section for the display of featured books.
 - Add to  cart functionality - adding of book to cart
 - Disabling a book product button if book is not in stock.
 
@@ -41,7 +41,7 @@ Single Book Display
 
 Display of Items added to cart
 
-The minus and  plus buttons can be used to deceease  and increase items added to cart.
+The minus and  plus buttons can be used to decrease  and increase items added to cart.
 
 Use the remove button to remove an item from cart.
 

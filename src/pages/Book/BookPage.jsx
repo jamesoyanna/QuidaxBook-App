@@ -47,7 +47,7 @@ const BookPage = () => {
     <section className="book-page-header">
      
       <div className="section-center">
-         <h2 className="header-text" style={{textAlign: 'left'}}> Single book Display</h2>
+         <h4 className="header-text" style={{textAlign: 'left', marginBottom: "30px"}}> Single book Display</h4>
       </div>
     </section>     
        <section className="single-product section">

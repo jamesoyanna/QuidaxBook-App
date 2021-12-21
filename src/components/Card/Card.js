@@ -7,6 +7,7 @@ import { useCartCounter } from "../../contexts/CartContext";
 import Backdrop from '../../components/Backdrop/Backdrop';
 import CartPage from './../../pages/CartPage/CartPage';
 
+
 const Card = ({ book }) => {
    const [sideToggle, setSideToggle] = useState(false);
 
@@ -22,11 +23,10 @@ const Card = ({ book }) => {
 
   const { addToCart } = useCartCounter();
 
-  const submitProductToCart = () => {
-    // When clicked, add product to cart and open cart drawer
+  const addBookToCart = () => {
+    // When clicked, add book to cart and open cart drawer
     addToCart(book);
      setSideToggle(true);
-    
   };
 
 
@@ -41,8 +41,16 @@ const Card = ({ book }) => {
                 <img src={book.image_url} className="w-full h-full" alt="" />
               </div>
               <div className="book-detail">
-                <span className="w-full text-green text-sm md:text-sm font-light mb-1 md:mb-2">
-                  {book.available_copies > 0 ? "In Stock" : "Out of Stock"}
+                <span
+                  className={
+                    book.available_copies > 0
+                      ? "w-full text-green text-sm md:text-sm font-light mb-1 md:mb-2"
+                      : "outofstock"
+                  }
+                >
+                  <span>
+                     {book.available_copies > 0 ? `${book.available_copies} Copies Available`: "Out of Stock"}
+                  </span>
                 </span>
                 <span className="w-full text-black text-sm font-bold light mb-1 md:text-md">
                   {book.title}
@@ -51,11 +59,13 @@ const Card = ({ book }) => {
                   <h4>{book.publisher}</h4>
                 </span>
                 <span className="w-full text-black text-xs md:text-xs font-light">
-                  Motivational
+                  11
+                  {/* 11{book.tags.map((tag) => (
+                    <li >{tag.name}</li>
+                  ))} */}
                 </span>
                 <span className="w-full text-black text-xs md:text-xs font-light mb-1">
-                 2021
-                
+                  2021
                 </span>
                 <span className="w-full flex-box flex-nowrap">
                   <span className="rating-section">
@@ -66,7 +76,7 @@ const Card = ({ book }) => {
                     <span className="w-full">
                       <Rating rating={book.rating} />
                     </span>
-                    <span className="p-price">${book.price}</span>
+                    <span>${book.price}</span>
                   </span>
                   <span className="w-1 mr-1 ml-1 h-8 p-0 bg-gray-lighter"></span>
                   <span className="rating-section">
@@ -105,13 +115,12 @@ const Card = ({ book }) => {
                 </span>
               </div>
             </div>
-         
           </Link>
         </div>
 
         <button
           disabled={!inStock}
-          onClick={submitProductToCart}
+          onClick={addBookToCart}
           className=" fas fa-shopping-cart add-to-cart"
         >
           {" "}
