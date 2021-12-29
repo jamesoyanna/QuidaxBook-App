@@ -14,7 +14,6 @@ const BOOK_QUERY = gql`
   created_at
   updated_at
   title
-  subtitle
   publisher
   release_date
   number_of_purchases
@@ -23,6 +22,13 @@ const BOOK_QUERY = gql`
   price
   image_url
   available_copies
+  full_description
+  genres{
+    name
+  }
+ 
+
+  
 }
 }
 `
@@ -36,11 +42,7 @@ const BookPage = () => {
         }
     });
 
-    // Implement date
-    //let isoDate = data.book.release_date ;
-    //let newDate =  moment.utc(data.book.release_date).format('MM/DD/YY');
 
-  
 
      if(loading) return <div>Loading...</div>
      if(error) return <div>An error occured</div>
@@ -52,7 +54,6 @@ const BookPage = () => {
     <section className="book-page-header">
      
       <div className="section-center">
-         <h4 className="header-text" style={{textAlign: 'left', marginBottom: "30px"}}> Single book Display</h4>
       </div>
     </section>     
        <section className="single-product section">
@@ -82,7 +83,8 @@ const BookPage = () => {
           
           <div>
               <h2 className="single-product-title">{data.book.title}</h2>
-            <h3 className="author">Author</h3>
+            <h4 className="author">{data.book.publisher}</h4>
+            <p className="author">{moment.utc(data.book.release_date).format(" YYYY ")}</p>
 
             <div className="item-header">
               <div style={{columns: 8, paddingTop: "35px"}}>
@@ -91,8 +93,11 @@ const BookPage = () => {
            
                <p className="item-list">Ratings {data.book.rating}</p>
                <div><Rating rating={data.book.rating} /></div>
-            <h5 className="item-list">Genre</h5>
-            
+            <span className="item-list">Genre
+            {data.book.genres.map((genre) =>(
+              <span key={genre.id} >{genre.name}, </span>
+            ))}
+            </span>
              <h5 className="item-list">Tags <span>{data.book.tags}</span></h5>
             <h5 className="item-list">Publisher</h5> 
               <div> {data.book.publisher}</div>
@@ -101,9 +106,9 @@ const BookPage = () => {
              </div>
              </div>
                    <span className="single-product-price">${data.book.price}</span>
-            <span className="single-product-desc">
-               {data.book.subtitle}
-            </span>
+            <p className="single-product-desc">
+               {data.book.full_description}
+            </p>
             <button   onClick={ addToCart} className="addToCartBtn">add to cart</button>
           </div>
         </article>
