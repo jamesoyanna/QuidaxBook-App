@@ -6,7 +6,7 @@ import { useCartCounter } from "../../contexts/CartContext";
 
 import Backdrop from '../../components/Backdrop/Backdrop';
 import CartPage from './../../pages/CartPage/CartPage';
-
+import moment from "moment";
 
 const Card = ({ book }) => {
    const [sideToggle, setSideToggle] = useState(false);
@@ -49,7 +49,9 @@ const Card = ({ book }) => {
                   }
                 >
                   <span>
-                     {book.available_copies > 0 ? `${book.available_copies} Copies Available`: "Out of Stock"}
+                    {book.available_copies > 0
+                      ? `${book.available_copies} Copies Available`
+                      : "Out of Stock"}
                   </span>
                 </span>
                 <span className="w-full text-black text-sm font-bold light mb-1 md:text-md">
@@ -59,11 +61,10 @@ const Card = ({ book }) => {
                   <h4>{book.publisher}</h4>
                 </span>
                 <span className="w-full text-black text-xs md:text-xs font-light">
-                  moltivational
-                 
+                  -{moment.utc(book.release_date).format(" YYYY ")}
                 </span>
                 <span className="w-full text-black text-xs md:text-xs font-light mb-1">
-                  2021
+                  moltivational
                 </span>
                 <span className="w-full flex-box flex-nowrap">
                   <span className="rating-section">

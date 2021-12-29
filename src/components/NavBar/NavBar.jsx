@@ -5,7 +5,9 @@ import {Link } from 'react-router-dom';
 import logoblack from '../../assets/image/logo-black.png';
 import logowhite from "../../assets/image/logo-white.png";
 
+
 import { useCartCounter } from "../../contexts/CartContext";
+//import SearchBox from './../Search/SearchBox';
 
 const NavBar = () => {
   const {cartCounter} = useCartCounter();
@@ -53,6 +55,7 @@ const NavBar = () => {
                 </div>
             
                 <div className="search-box h-10 relative bg-white">
+                  {/* <SearchBox /> */}
                   <input
                     id="search-input"
                     type="text"

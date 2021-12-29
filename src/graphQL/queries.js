@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 // GraphQL query to fetch all book items
-export const BOOK_QUERY = gql`
+ const BOOK_QUERY = gql`
   {
     books {
       id
@@ -20,3 +20,15 @@ export const BOOK_QUERY = gql`
     }
   }
 `;
+
+
+const FILTERED_BOOKS = gql`
+  query books($limit: Int) {
+    books(limit: $limit) {
+      id
+      title
+    }
+  }
+`;
+
+export { FILTERED_BOOKS, BOOK_QUERY };

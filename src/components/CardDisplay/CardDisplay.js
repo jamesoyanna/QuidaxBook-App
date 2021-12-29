@@ -2,11 +2,12 @@ import React from "react";
 import Card from "./../Card/Card";
 import "./cardDisplay.css";
 
-const CardDisplay = ({ books }) => {
+const CardDisplay = ({books}) => {
+
   return (
     <>
-      <div className="books" style={{}}>
-    
+      <div className="books">
+ 
         <h4 className="header-text">
           All Books
         </h4>

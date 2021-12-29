@@ -234,12 +234,30 @@ font-size: 15px;
 align-items: left;
 
 }
+
+.outofstock{
+  color: 	 #ff3333;
+  font-size: 13px;
+}
+.available-copies{
+  font-size: 15px;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 992px) {
   .single-product-center {
     grid-template-columns: 1fr 1fr;
   }
 }
 
+@media only screen and (min-width: 480px) {
+  .section-center{
+  width: 8.33%;
+  }
+  .container{
+     width: 8.33%;
+  }
+}
 
 
 

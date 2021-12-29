@@ -1,16 +1,19 @@
 import React from "react";
-import { useLazyQuery, gql } from "@apollo/client";
+import {useQuery } from "@apollo/client";
 import { useState } from "react";
 
 
-const GET_BOOKS = gql`
-  query book($id: ID!) {
-    book(id: $id) {
-      id
+import { FILTERED_BOOKS } from "../../graphQL/queries";
+import SearchResult from './SearchResult';
+
+// const GET_BOOKS = gql`
+//   query book($id: ID!) {
+//     book(id: $id) {
+//       id
   
-    }
-  }
-`;
+//     }
+//   }
+// `;
 
 //  const GET_BOOKS = gql`
 //    {
@@ -21,52 +24,29 @@ const GET_BOOKS = gql`
 //  `;
 
 
-const SearchBox = () => {
-  const [searchFilter, setSearchFilter] = useState("");
+const SearchBox = ({limit}) => {
+  const [filter, setFilter] = useState("");
 
-   const [executeSearch, { data, loading, error }] = useLazyQuery(GET_BOOKS);
-
-  //const [getBooks, { loading, data, error, refetch }] = useLazyQuery(GET_BOOKS);
-
-  // const { data, loading, error, refetch } = useLazyQuery(GET_BOOKS, {
-  //   variables: { },
-  // });
-
- //const { operations, models } = useBookFilters();
-
-  // function useBookFilters() {
-  //   const [filters, _updateFilter] = useState({
-  //     id: undefined,
-  //   });
-
-  //   console.log("MY filters", filters);
-
-  //   const updateFilter = (filterType, value) => {
-  //     _updateFilter({
-  //       [filterType]: value,
-  //     });
-  //   };
-
-  //   return {
-  //     models: { filters },
-  //     operations: { updateFilter },
-  //   };
-  // }
-
-  console.log("Search filter.", searchFilter)
+  const { data, loading, error, refetch } = useQuery(FILTERED_BOOKS, {
+    variables: { filter },
+  });
 
 
+  //  const [executeSearch, { data, loading, error }] =
+  //    useLazyQuery(FILTERED_BOOKS);
 
-    if (loading) return <div>Loading</div>;
-    if (error) return <div>error</div>;
 
+     if (loading) return <div>Loading</div>;
+     if (error) return <div>error</div>;
+
+       console.log("Result from Quidax app", data);
 
   return (
     <>
       <div className="App">
         <h1>
-          <a href="#albums" aria-hidden="true" class="aal_anchor" id="albums">
-            <svg
+          {/* <a href="#book" aria-hidden="true" className="aal_anchor book"> */}
+            {/* <svg
               aria-hidden="true"
               class="aal_svg"
               height="16"
@@ -78,35 +58,33 @@ const SearchBox = () => {
                 fill-rule="evenodd"
                 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"
               ></path>
-            </svg>
-          </a>
-          Albums
+            </svg> */}
+          {/* </a> */}
+          {/* Books */}
         </h1>
 
         <div>
-          <label>Search</label>
+          {/* <label>Search Now</label> */}{" "}
           <input
-            onChange={(e) => setSearchFilter(e.target.value)}
-            type="string"
+            type="text"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
           />
         </div>
 
         <br />
-
+        {!data || loading ? (
+          <div>loading...</div>
+        ) : (
+          <div>
+            {data.books.map((book) => (
+              <SearchResult key={book.id} book={book} />
+            ))}
+          </div>
+        )}
         <br />
 
-        <button
-          onClick={() =>
-            executeSearch({
-              variables: { id: searchFilter },
-            })
-          }
-        >
-          Submit!
-        </button>
-
-        {data &&
-          data.books.map((bk, i) => <li key={bk.id} bk={bk} index={i} />)}
+        <button onClick={() => refetch()}>Submit!</button>
       </div>
     </>
   );
