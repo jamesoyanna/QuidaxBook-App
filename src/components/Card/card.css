@@ -69,14 +69,19 @@
   width: 8rem;
   height: 100%;
 }
-
+.price{
+  font-size: 14px;
+  font-weight: 600;
+}
 .add-to-cart{
     cursor: pointer;
     background: transparent;
     font-size: 17px;
     border: none;
-
- 
+}
+.tag-list{
+  list-style: none;
+  font-size: 13px;
 }
 
 .outofstock{

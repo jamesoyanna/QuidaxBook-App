@@ -19,14 +19,16 @@ const BOOK_QUERY = gql`
   number_of_purchases
   likes
   rating
-  price
   image_url
   available_copies
   full_description
   genres{
     name
   }
- 
+ tags{
+   name
+ }
+
 
   
 }
@@ -88,24 +90,38 @@ const BookPage = () => {
 
             <div className="item-header">
               <div style={{columns: 8, paddingTop: "35px"}}>
-            <h5 className="item-list">person</h5>
-            <h5 className="item-list">{data.book.likes}</h5>
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+</svg>
+<span className="item-list">{data.book.number_of_purchases}</span>
+              </div>
+            
+            <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+</svg>
+    <h5 className="item-list">{data.book.likes}</h5>
+            </div>
+            
            
                <p className="item-list">Ratings {data.book.rating}</p>
                <div><Rating rating={data.book.rating} /></div>
             <span className="item-list">Genre
             {data.book.genres.map((genre) =>(
-              <span key={genre.id} >{genre.name}, </span>
+              <span key={genre.id} >{genre.name}</span>
             ))}
             </span>
-             <h5 className="item-list">Tags <span>{data.book.tags}</span></h5>
+             <h5 className="item-list">Tags<span> {data.book.tags.map((tag) =>(
+              <span key={tag.id} >{tag.name}</span>
+            ))}</span></h5>
             <h5 className="item-list">Publisher</h5> 
               <div> {data.book.publisher}</div>
             <h5 className="item-list">Released</h5>
             <span>{moment.utc(data.book.release_date).format('MMMM Do YYYY')}</span>
              </div>
              </div>
-                   <span className="single-product-price">${data.book.price}</span>
+                 
             <p className="single-product-desc">
                {data.book.full_description}
             </p>

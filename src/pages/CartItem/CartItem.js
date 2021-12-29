@@ -86,7 +86,7 @@ export default function CartItem({
               }}
               className=""
             >
-              ${getSubTotal()}
+              $ {getSubTotal()}
             </div>
           </div>
         </div>
