@@ -2,15 +2,22 @@ import React from 'react';
 import "./CategoryDisplay.css";
 import Flickity from "react-flickity-component";
 import { useCartCounter } from "../../contexts/CartContext";
+import moment from 'moment';
 import { Link } from "react-router-dom";
+import Rating from '../Rating';
+
 const flickityOptions = {
     initialIndex: 2
 }
+
+
 const CategoryDisplay = () => {
    const { loading, error, data  } = useCartCounter();
 
      if(loading) return <div>Loading...</div>
      if(error) return <div>An error occured</div>
+
+     console.log("Category", data.books.title);
     
     return (
       <>
@@ -26,10 +33,9 @@ const CategoryDisplay = () => {
       
           > 
        
-            {data.books.map((image, i) => (
-               <Link key={i} to={`/product/${image.id}`}>
+            {data.books.map((book, i) => (
+               <Link key={i} to={`/product/${book.id}`}>
               {/* <div className='container'> */}
-                {/* ////////////// */}
                   
                 <div className="carousel-cell shadow-lg relative">
                 <span  className="open-carousel-overlay bg-white cell-button w-6 h-6  rounded-full">
@@ -50,15 +56,19 @@ const CategoryDisplay = () => {
                           </svg>
                         </span>
                     </span>
-                     <span class="w-full text-green text-sm md:text-sm font-light mb-1 md:mb-2">Available</span>
-                                <span className="w-full text-white text-sm font-bold light mb-1 md:mb-2 md:text-md truncate mb:no-truncate">Big Magic</span>
-                                <span className="w-full text-white text-xs md:text-xs font-light truncate mb:no-truncate">Elizabeth Gilbert</span>
-                                <span className="w-full text-white text-xs md:text-xs font-light mb-1">2014</span>
-                                <span className="w-full text-white text-xs md:text-xs font-light hidden md:block"><strong className="font-bold">Genre: </strong>Motivational</span>
+                     <span  className={
+                    book.available_copies > 0
+                      ? "w-full text-green text-sm md:text-sm font-light mb-1 md:mb-2"
+                      : "outofstock"
+                  }> {book.available_copies > 0 ? `${book.available_copies} Copies Available`: "Out of Stock"}</span>
+                                <span className="w-full text-white text-sm font-bold light mb-1 md:mb-2 md:text-md truncate mb:no-truncate">{book.title}</span>
+                                <span className="w-full text-white text-xs md:text-xs font-light truncate mb:no-truncate">{book.publisher}</span>
+                                <span className="w-full text-white text-xs md:text-xs font-light mb-1">{moment.utc(book.release_date).format(" YYYY ")}</span>
+                                <span className="w-full text-white text-xs md:text-xs font-light hidden md:block"><strong className="font-bold">Genre</strong>{book.genres.name}</span>
                                 <span className="w-full text-white text-xs md:text-xs font-light mb-1 hidden md:block"><strong className="font-bold">Labels: </strong>Creative, Self-help</span>
                                  <span className="w-full rating">
                                     <span className="rating-section">
-                                       <span className="w-full text-white text-xs md:text-xs font-light mb-1"><span className="md:font-bold">Rating: </span>4.0</span>
+                                       <span className="w-full text-white text-xs md:text-xs font-light mb-1">Rating:<Rating rating={book.rating} /></span>
                                         <span className="w-full">
                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4 fill-current text-yellow ">
                                                 <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
@@ -73,13 +83,16 @@ const CategoryDisplay = () => {
                                             </svg>
                                        </span>
                                         <span className="full">
-                                            <span className="w-full text-white text-xs font-light mr-1">44</span>
-                                            <span className="w-full text-white text-xs font-light ">20</span>
+                                           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                                            <span className="w-full text-white text-xs font-light mr-1">{book.likes}</span>
+                                            <span className="w-full text-white text-xs font-light ">44</span>
                                         </span>
                                     </span>
                                  </span>            
                   </div>
-                   <img className="carousel-images" src={image.image_url}  alt="book images" />
+                   <img className="carousel-images" src={book.image_url}  alt="book images" />
               </div>
            
             

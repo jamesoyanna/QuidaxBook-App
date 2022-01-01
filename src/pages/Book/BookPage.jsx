@@ -1,49 +1,22 @@
 import React from 'react';
 import "./bookPage.css";
 import {useParams } from "react-router-dom";
-import {useQuery, gql } from '@apollo/client';
+import {useQuery } from '@apollo/client';
 import Rating from './../../components/Rating';
 import moment from 'moment';
-
+import {SINGLE_BOOK_QUERY} from '../../graphQL/queries';
 import { useCartCounter } from "../../contexts/CartContext";
 
-const BOOK_QUERY = gql`
- query book($id: ID!) {
- book(id: $id){
-   id
-  created_at
-  updated_at
-  title
-  publisher
-  release_date
-  number_of_purchases
-  likes
-  rating
-  image_url
-  available_copies
-  full_description
-  genres{
-    name
-  }
- tags{
-   name
- }
 
-
-  
-}
-}
-`
 const BookPage = () => {
 
      const { addToCart } = useCartCounter();
      const { id } = useParams();
-    const { data, loading, error } = useQuery(BOOK_QUERY,{
+    const { data, loading, error } = useQuery(SINGLE_BOOK_QUERY,{
         variables:{
             id
         }
     });
-
 
 
      if(loading) return <div>Loading...</div>
@@ -92,14 +65,14 @@ const BookPage = () => {
               <div style={{columns: 8, paddingTop: "35px"}}>
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
 </svg>
 <span className="item-list">{data.book.number_of_purchases}</span>
               </div>
             
             <div>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
 </svg>
     <h5 className="item-list">{data.book.likes}</h5>
             </div>
