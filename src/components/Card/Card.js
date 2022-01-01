@@ -32,7 +32,7 @@ const Card = ({ book }) => {
 
   return (
     <>
-      <section style={{ margin: "100px 70px" }} className="section mt-4">
+      <section  style={{ margin: "100px 50px" }}>
         <div className="books-display">
           {/* first book start */}
           <Link style={{ textDecoration: "none" }} to={`/product/${book.id}`}>
@@ -129,9 +129,8 @@ const Card = ({ book }) => {
         <button
           disabled={!inStock}
           onClick={addBookToCart}
-          className=" fas fa-shopping-cart add-to-cart"
+          className="fas fa-shopping-cart add-to-cart"
         >
-          {" "}
           Add to card
         </button>
       </section>
