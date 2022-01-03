@@ -1,7 +1,7 @@
 import React from 'react';
-import "./MainHero.css";
+import "./hero.css";
 
-const MainHero = () => {
+const Hero = () => {
     return (
         <div className="MainHero">
             <h4 className="header">Feature Books</h4>
@@ -19,4 +19,4 @@ const MainHero = () => {
     );
 }
 
-export default MainHero;
+export default Hero;

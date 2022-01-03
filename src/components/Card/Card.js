@@ -3,10 +3,10 @@ import "./card.css";
 import { Link } from "react-router-dom";
 import Rating from "./../Rating";
 import { useCartCounter } from "../../contexts/CartContext";
-
 import Backdrop from '../../components/Backdrop/Backdrop';
 import CartPage from './../../pages/CartPage/CartPage';
 import moment from "moment";
+import TagList from './TagList';
 
 const Card = ({ book }) => {
    const [sideToggle, setSideToggle] = useState(false);
@@ -32,7 +32,7 @@ const Card = ({ book }) => {
 
   return (
     <>
-      <section  style={{ margin: "100px 50px" }}>
+      <section style={{ margin: "100px 50px" }}>
         <div className="books-display">
           {/* first book start */}
           <Link style={{ textDecoration: "none" }} to={`/product/${book.id}`}>
@@ -65,9 +65,11 @@ const Card = ({ book }) => {
                 </span>
                 <span className="w-full text-black text-xs md:text-xs font-light mb-1">
                   {book.tags.map((tag) => (
-                    <li key={tag.id} className="tag-list">
-                      {tag.name},
-                    </li>
+                    <TagList
+                      key={tag.id}
+                      tag={tag}
+                      className="tag-list"
+                    ></TagList>
                   ))}
                 </span>
                 <span className="w-full flex-box flex-nowrap">

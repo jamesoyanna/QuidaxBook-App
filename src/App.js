@@ -3,8 +3,8 @@ import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import { Switch, Route, BrowserRouter, Redirect } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import CategoryPage from "./pages/CategoryPage/CategoryPage";
-import BookPage from "./pages/Book/BookPage";
+import Category from "./components/Category/Category";
+import BookPage from "./pages/BookPage/BookPage";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import SearchBox from "./components/Search/SearchBox";
 
@@ -26,7 +26,7 @@ function App() {
 
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/products/:id" component={CategoryPage} />
+                <Route path="/products/:id" component={Category} />
                 <Route path="/product/:id" component={BookPage} />
                 <Route exact path="/" render={() => <Redirect to="/new/1" />} />
                 <Route exact path="/search" component={SearchBox} />

@@ -16,21 +16,16 @@ const CategoryDisplay = () => {
 
      if(loading) return <div>Loading...</div>
      if(error) return <div>An error occured</div>
-
-     console.log("Category", data.books.title);
     
     return (
       <>
-     
-          <Flickity
-          
+      <Flickity
           className={'carousel'} 
       elementType={'div'} 
       options={flickityOptions} 
       disableImagesLoaded={false} 
       reloadOnUpdate 
       static
-      
           > 
        
             {data.books.map((book, i) => (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CategoryPage = (book) => {
+const Category = (book) => {
     return (
         <div>
             {book}
@@ -8,4 +8,4 @@ const CategoryPage = (book) => {
     );
 }
 
-export default CategoryPage;
+export default Category;

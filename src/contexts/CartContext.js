@@ -9,41 +9,22 @@ export const CartContext = createContext();
 export const useCartCounter = () => useContext(CartContext)
 
 const CartContextProvider = (props) => {
-     const { data, error, loading } = useQuery(BOOK_QUERY);
+  const { data, error, loading } = useQuery(BOOK_QUERY);
   const [cart, setCart] = useState([]); // Initialize cart as empty array
 
+  const [cartCounter, setCartCounter] = useState(0);
 
+  // Increament function for increasing cart items
+  const increaseCartCounter = () => {
+    setCartCounter(cartCounter + 1);
+  };
 
- // const [products, setProducts] = useState([]); // Initialize product list as empty array
-   const [cartCounter, setCartCounter] = useState(0);
- 
-  
-     const increaseCartCounter = () => {
-       setCartCounter(cartCounter + 1);
-     };
-
-     const decreaseCartCounter = () => {
-       setCartCounter(cartCounter - 1);
-     };
-
-     
-     
-
-
-    // useEffect(() => {
-    //   if (data) {
-      
-    //   }
-    // }, [data]);
-
-
-
-
-  // Toggle and display cart page
-  //const [sideToggle, setSideToggle] = useState(false);
+  // Decreament function for decreasing cart items
+  const decreaseCartCounter = () => {
+    setCartCounter(cartCounter - 1);
+  };
 
   const addToCart = (chosenItem) => {
-   
     // This function checks, first, if a particular item already exists in a cart,
     const productToIncrement = [...cart].find(({ id }) => id === chosenItem.id);
 
@@ -55,8 +36,7 @@ const CartContextProvider = (props) => {
       //If not, it'll add that item to the array of items in the cart
       setCart([...cart, { ...chosenItem, amount: 1 }]);
     }
-     setCartCounter(cartCounter + 1);
-    
+    setCartCounter(cartCounter + 1);
   };
 
   const incrementItemAmount = (chosenItem) => {
@@ -96,9 +76,6 @@ const CartContextProvider = (props) => {
     // of the multiplication of the price and amount of each cart-item
     return cart.reduce((sum, { price, amount }) => sum + price * amount, 0);
   };
-  
-
-
 
   const value = {
     addToCart,
@@ -113,12 +90,10 @@ const CartContextProvider = (props) => {
     increaseCartCounter,
     decreaseCartCounter,
     cartCounter,
-    
   };
 
   return (
     <CartContext.Provider value={value}>{props.children}</CartContext.Provider>
-    
   );
 };
 

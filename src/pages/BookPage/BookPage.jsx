@@ -2,11 +2,10 @@ import React from 'react';
 import "./bookPage.css";
 import {useParams } from "react-router-dom";
 import {useQuery } from '@apollo/client';
-import Rating from './../../components/Rating';
+import Rating from '../../components/Rating';
 import moment from 'moment';
 import {SINGLE_BOOK_QUERY} from '../../graphQL/queries';
 import { useCartCounter } from "../../contexts/CartContext";
-
 
 const BookPage = () => {
 
@@ -64,14 +63,14 @@ const BookPage = () => {
             <div className="item-header">
               <div style={{columns: 8, paddingTop: "35px"}}>
               <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
 </svg>
 <span className="item-list">{data.book.number_of_purchases}</span>
               </div>
             
             <div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
 </svg>
     <h5 className="item-list">{data.book.likes}</h5>
@@ -82,7 +81,7 @@ const BookPage = () => {
                <div><Rating rating={data.book.rating} /></div>
             <span className="item-list">Genre
             {data.book.genres.map((genre) =>(
-              <span key={genre.id} >{genre.name}</span>
+              <spana genre={genre} key={genre.id}></spana>
             ))}
             </span>
              <h5 className="item-list">Tags<span> {data.book.tags.map((tag) =>(

@@ -1,6 +1,6 @@
 import "./cartpage.css";
 //import { Link } from "react-router-dom";
-import CartItem from "../CartItem/CartItem";
+import CartItem from "../../components/CartItem/CartItem";
 
 import { useCartCounter } from "../../contexts/CartContext";
 

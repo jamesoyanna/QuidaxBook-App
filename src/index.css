@@ -267,8 +267,3 @@
   min-height: calc(100% - 4rem);
   margin-top: 6rem;
 }
-/* badge */
-.badge {
-  width: 1rem;
-  height: 1rem;
-}

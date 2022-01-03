@@ -1,5 +1,5 @@
 import React from 'react';
-import MainHero from './../../components/MainHero/MainHero';
+import MainHero from '../../components/Hero/Hero';
 import CategoryDisplay from '../../components/CategoryDisplay/CategoryDisplay';
 import CardDisplay from './../../components/CardDisplay/CardDisplay';
 import { useCartCounter } from '../../contexts/CartContext';
