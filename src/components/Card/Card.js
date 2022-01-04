@@ -32,19 +32,19 @@ const Card = ({ book }) => {
 
   return (
     <>
-      <section style={{ margin: "100px 50px" }}>
+      <section>
         <div className="books-display">
           {/* first book start */}
           <Link style={{ textDecoration: "none" }} to={`/product/${book.id}`}>
             <div className="book">
               <div className="thumbnail">
-                <img src={book.image_url} className="w-full h-full" alt="" />
+                <img src={book.image_url} className="w-full h-full" alt="books" />
               </div>
               <div className="book-detail">
                 <span
                   className={
                     book.available_copies > 0
-                      ? "w-full text-green text-sm md:text-sm font-light mb-1 md:mb-2"
+                      ? "copies-available"
                       : "outofstock"
                   }
                 >
@@ -54,13 +54,13 @@ const Card = ({ book }) => {
                       : "Out of Stock"}
                   </span>
                 </span>
-                <span className="w-full text-black text-sm font-bold light mb-1 md:text-md">
+                <span className="book-title">
                   {book.title}
                 </span>
                 <span className="w-full text-black text-xs md:text-xs font-light">
                   <h4>{book.publisher}</h4>
                 </span>
-                <span className="w-full text-black text-xs md:text-xs font-light">
+                <span className="release-date">
                   -{moment.utc(book.release_date).format(" YYYY ")}
                 </span>
                 <span className="w-full text-black text-xs md:text-xs font-light mb-1">

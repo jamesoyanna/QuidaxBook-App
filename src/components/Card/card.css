@@ -1,10 +1,25 @@
 
+.books-display{
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 15px 5px 15px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 90px;
+
+
+}
+
 .books {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   padding: 0rem 2rem;
 }
+
+
 .book {
   width: 100%;
   background-color: white;
@@ -14,6 +29,7 @@
   align-items: center;
   margin-bottom: 1.5rem;
 }
+
 .book-detail{
   display: flex;
   flex-direction: column;
@@ -31,37 +47,7 @@
   height: 100%;
 }
 
-.books {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0rem 2rem;
-}
-.book {
-  width: 100%;
-  background-color: white;
-  padding:0;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-.book-detail{
-  display: flex;
-  flex-direction: column;
-  align-content: flex-start;
-  justify-content: flex-end;
-  background-color: transparent;
-  padding-left: 0.5rem;
-  flex-grow:1;
-}
-.book:hover {
-  box-shadow: 3px 3px 30px 0px rgba(0,0,0,0.35), -3px -3px 30px 0px rgba(255,255,255,0.9);
-}
-.thumbnail {
-  width: 8rem;
-  height: 100%;
-}
+
 .price{
   font-size: 14px;
   font-weight: 600;
@@ -69,7 +55,7 @@
 .add-to-cart{
     cursor: pointer;
     background: transparent;
-    font-size: 17px;
+    font-size: 15px;
     border: none;
 }
 .tag-list{
@@ -80,7 +66,27 @@
 .outofstock{
   color: 	 #ff3333;
   font-size: 13px;
+  padding-top: 1rem;
 }
-.title{
-  color: red;
+
+.copies-available{
+  width: full;
+  font-size: 14px;
+  color: green;
+  margin: 2px 2px;
+  padding-top: 1rem;
+
+}
+.book-title{
+  font-size: 16px;
+  font-weight: bold;
+  margin: 2px 2px;
+  color: #000;
+}
+
+
+.release-date{
+font-size: 14px;
+text-align: center;
+color:#000;
 }
