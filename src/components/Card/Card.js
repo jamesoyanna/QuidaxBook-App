@@ -57,13 +57,13 @@ const Card = ({ book }) => {
                 <span className="book-title">
                   {book.title}
                 </span>
-                <span className="w-full text-black text-xs md:text-xs font-light">
-                  <h4>{book.publisher}</h4>
+                <span className="book-text">
+                  <span className="publisher">{book.publisher}</span>
                 </span>
-                <span className="release-date">
+                <span className="book-text">
                   -{moment.utc(book.release_date).format(" YYYY ")}
                 </span>
-                <span className="w-full text-black text-xs md:text-xs font-light mb-1">
+                <span className="book-text">
                   {book.tags.map((tag) => (
                     <TagList
                       key={tag.id}
@@ -74,8 +74,8 @@ const Card = ({ book }) => {
                 </span>
                 <span className="w-full flex-box flex-nowrap">
                   <span className="rating-section">
-                    <span className="w-full text-black text-xs md:text-xs font-light mb-1">
-                      <span className="md:font-bold">Rating: </span>
+                    <span>
+                      <span>Rating: </span>
                       {book.rating}
                     </span>
                     <span className="w-full">

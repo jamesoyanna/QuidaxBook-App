@@ -22,26 +22,19 @@ const BookPage = () => {
      if(error) return <div>An error occured</div>
 
     return (
-
       <>
     <div className="container">
-    <section className="book-page-header">
-     
-      <div className="section-center">
-      </div>
-    </section>     
-       <section className="single-product section">
-
-      
-      <div className="section-center single-product-center">
-        <section className="image-section">
-        <img
+    <div className="header"></div>
+     <section className="single-product section">
+     <div className="section-center single-product-center">
+     <section className="image-section"> 
+       <img
           src={data.book.image_url}
           className="single-product-img img"
           alt=""
-        />  
-            <br />
-            <span
+        />
+          <br />
+         <span
                   className={
                     data.book.available_copies > 0
                       ? "w-full text-green text-sm md:text-sm font-light mb-1 md:mb-2"
@@ -52,16 +45,15 @@ const BookPage = () => {
                      {data.book.available_copies > 0 ? `${data.book.available_copies} Copies Available`: "Out of Stock"}
                   </span>
                    </span>
-        </section>
-        <article className="single-product-info">
-          
+     </section>
+     <article className="product-info">
           <div>
               <h2 className="single-product-title">{data.book.title}</h2>
             <h4 className="author">{data.book.publisher}</h4>
             <p className="author">{moment.utc(data.book.release_date).format(" YYYY ")}</p>
 
             <div className="item-header">
-              <div style={{columns: 8, paddingTop: "35px"}}>
+              <div>
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -91,7 +83,7 @@ const BookPage = () => {
               <div> {data.book.publisher}</div>
             <h5 className="item-list">Released</h5>
             <span>{moment.utc(data.book.release_date).format('MMMM Do YYYY')}</span>
-             </div>
+             </div>  
              </div>
                  
             <p className="single-product-desc">
@@ -100,11 +92,10 @@ const BookPage = () => {
             <button   onClick={ addToCart} className="addToCartBtn">add to cart</button>
           </div>
         </article>
-      </div>
-    </section>
+     </div>
+     </section>
+    
     </div>
-
-
 </>
 
     );
