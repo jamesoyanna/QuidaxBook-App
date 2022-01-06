@@ -41,11 +41,6 @@
 
 
 
-@keyframes animate {
-  0%   { background-position: left;  }
-  50%  { background-position: right; }
-  100% { background-position: right; }
-}
 
 /* Book Image */
 .image {
@@ -126,19 +121,3 @@ input:focus {
 
 
 
-@media (max-width: 800px) {
-    .image,
-  .quantity,
-  .description {
-    width: 100%;
-    text-align: center;
-    margin: 6px 0;
-  } 
-  
-h4{
-    font-size: 27px;
-}
-.publisher{
-text-align: left;
-}
-}

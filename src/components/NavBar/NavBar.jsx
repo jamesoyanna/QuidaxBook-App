@@ -7,7 +7,7 @@ import logowhite from "../../assets/image/logo-white.png";
 
 
 import { useCartCounter } from "../../contexts/CartContext";
-//import SearchBox from './../Search/SearchBox';
+// import SearchBox from './../Search/SearchBox';
 
 const NavBar = () => {
   const {cartCounter} = useCartCounter();
@@ -60,7 +60,7 @@ const NavBar = () => {
                     id="search-input"
                     type="text"
                     className="search-input w-full h-10 text-sm text-gray-dark font-light p-4"
-                    placeholder="Search books, genres, authos,etc."
+                    placeholder="Search books, genres, authors,etc."
                   />
                   <span className="absolute w-10 h-10 flex inset-right-0 border-left bg-gray-lighter">
                     <svg

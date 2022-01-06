@@ -229,11 +229,7 @@
   .rating {
     flex-wrap: no-wrap;
   }
-  /* Navbar*/
-  .navbar {
-    height: 6rem;
-    opacity: 0.95;
-  }
+
   .item-toggle {
     display: none;
   }
@@ -338,7 +334,16 @@
   font-weight: bold;
 }
 
+@media only screen and (max-width: 600px) {
+ .carousel-images{
+ height: 700px;
+ width: 700px;
 
+  
+
+ }
+
+}
 
 
 

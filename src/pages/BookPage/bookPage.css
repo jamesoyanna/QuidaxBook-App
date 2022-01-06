@@ -86,7 +86,7 @@ justify-content: center;
   text-transform: capitalize;
   display: flex;
 height: 40px;
- width: 25%;
+ width: 45%;
   align-items: center;
    border-radius: .25rem;
     font-size: 16px; 
@@ -251,7 +251,12 @@ align-items: left;
   .author{
    font-size: 15px; 
   }
-
+ .addToCartBtn{
+  height: 55px;
+ width: 65%; 
+ margin-bottom: 90px;
+margin-left: 75px;
+ }
 
 }
 
