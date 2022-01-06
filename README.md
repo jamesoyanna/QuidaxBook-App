@@ -32,11 +32,19 @@ This project is a simple ecommerce book application use for purchase of book ite
 Home page display of book items
 
 
-![home-page](https://user-images.githubusercontent.com/26815113/146249588-ed52a8aa-eb1b-486c-af49-3a10ae7d899f.JPG)
+![home-page](https://user-images.githubusercontent.com/26815113/148362691-2788f7f1-3a37-4a4d-b8b3-c15b93a16247.JPG)
+
+
+
+Books display on Banner section:
+
+![banner-books](https://user-images.githubusercontent.com/26815113/148362405-fc2e13f2-36dd-4374-b3a7-d238617735fc.JPG)
+
 
 
 Single Book Display
-![single-book](https://user-images.githubusercontent.com/26815113/146249837-7caa0957-be02-4d41-abb5-e56e57e892ce.JPG)
+![single-book](https://user-images.githubusercontent.com/26815113/148363158-b1d6eda5-dd85-4cd5-be69-d0b8423a2d7e.JPG)
+
 
 
 Display of Items added to cart
