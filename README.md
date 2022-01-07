@@ -108,14 +108,23 @@ It uses [Node.js >= 12.18.3](https://nodejs.org/en/)
 			 ├── CategoryDisplay
 			       ├── CategoryDisplay.js
 				   ├── categoryDisplay.css
-			 ├── MainHero
+			 ├── Hero
 			       ├── MainHero.js.js
 				   ├── mainhero.css
 			 ├── Navbar
 			       ├── Navbar.js
 				   ├── navbar.js
+             ├── CartItem
+			       ├── CartItem.js
+				   ├--cartItem.css
+             ├── Search
+			       ├── SearchBox.js
+				    ── SearchBox.css
+				   ├---SearcResult.js
+				    
+
 			 ├── Rating.js
-	      └── contexts
+	       └── contexts
 	              └── CartContext.js
 		                
 		    ├── graphQL
@@ -125,14 +134,10 @@ It uses [Node.js >= 12.18.3](https://nodejs.org/en/)
 			     ├── Book
 				      ├── BookPage.js
 					  ├── bookPage.css
-			     ├── CartItem
-				      ├── CartItem.js
-					  ├── cartItem.css
+			     ├── CartPage
+				      ├── CartPage.js
+					  ├── cartpage.css
 
-			     ├── CategoryPage
-				      ├── CategoryPage.js
-					  ├── categoryPage.css
-                 
 				 ├── Home
 				      ├── Home.js
 					  
@@ -147,7 +152,7 @@ Ensure you have NodeJS installed by entering node -v on your terminal If you don
 
 
 ### Tools Required
-The following tools is required to run this application:
+The following tools are required to run this application:
 
 * A text editor like Visual Studio Code
 * Command Line
@@ -193,12 +198,12 @@ So to avoid over-engineering the solution,  I used the React Context API for my 
 
 
 ### How I manage the application state:
-First, I created the cart context, which I use to create provide my application state and functions across different components.
+First, I created the cart Context, which I use to create my application state and functions across different components.
 
 I used the useContext hooks to access my state in the component I need it.
 
 ## My Approach to the challenge:
-I created the project using create-react-app, a popular command-line tool that enables me to set up react applications with zero or minimal configuration and setup.
+I created the project using create-react-app, a popular command-line tool that enable me to set up react applications with zero or minimal configuration and setup.
 
 Next was to load the data that is stored in the database. 
 Having gone through this https://quidax-feec-graphql.herokuapp.com/graphql GraphQL API documentation sent with this challenge,

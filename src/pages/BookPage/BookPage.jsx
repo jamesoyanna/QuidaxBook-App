@@ -73,10 +73,10 @@ const BookPage = () => {
                <div><Rating rating={data.book.rating} /></div>
             <span className="item-list">Genre
             {data.book.genres.map((genre) =>(
-              <spana genre={genre} key={genre.id}></spana>
+              <span genre={genre} key={genre.id}></span>
             ))}
             </span>
-             <h5 className="item-list">Tags<span> {data.book.tags.map((tag) =>(
+             <h5 className="item-list">Tags<span><br /> {data.book.tags.map((tag) =>(
               <span key={tag.id} >{tag.name}</span>
             ))}</span></h5>
             <h5 className="item-list">Publisher</h5> 

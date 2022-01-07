@@ -3,7 +3,7 @@ import React from 'react';
 const TagList = ({tag}) => {
     return (
         <div>
-         <li> {tag.name},</li> 
+         <li style={{ listStyleType: "none"}}> {tag.name},</li> 
         </div>
     );
 }
